@@ -1,0 +1,11 @@
+[versions]
+cameraX = "1.3.4"
+exifInterface = "1.3.7"
+
+[libraries]
+cameraXCAM = { module = "androidx.camera:camera-camera2", version.ref = "cameraX" }
+cameraXLifeCycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraX" }
+cameraXVideo = { module = "androidx.camera:camera-video", version.ref = "cameraX" }
+cameraXView = { module = "androidx.camera:camera-view", version.ref = "cameraX" }
+cameraXExtension = { module = "androidx.camera:camera-extensions", version.ref = "cameraX" }
+exifInterface = { module = "androidx.exifinterface:exifinterface", version.ref = "exifInterface" }

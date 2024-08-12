@@ -1,0 +1,9 @@
+[versions]
+mockk = "1.13.8"
+mockkCommon = "1.11.0"
+junit = "4.13.2"
+
+[libraries]
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-common = { module = "io.mockk:mockk-common", version.ref = "mockkCommon" }
+junit = { module = "junit:junit", version.ref = "junit" }

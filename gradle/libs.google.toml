@@ -1,0 +1,20 @@
+[versions]
+review = "2.0.1"
+map = "2.7.2"
+play-service = "19.0.0"
+google-places = "3.5.0"
+guava = "32.0.1-jre"
+ads = "23.3.0"
+
+[libraries]
+review-main = { module = "com.google.android.play:review", version.ref = "review" }
+review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "review" }
+compose-map = { module = "com.google.maps.android:maps-compose", version.ref = "map" }
+gms-google-map = { module = "com.google.android.gms:play-services-maps", version.ref = "play-service" }
+google-places = { module = "com.google.android.libraries.places:places", version.ref = "google-places" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+play-ads-service = { module = "com.google.android.gms:play-services-ads", version.ref = "ads" }
+
+[plugins]
+googleServices = { id = "com.google.gms.google-services", version = "4.4.2" }
+mapsSecrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version = "2.0.1" }

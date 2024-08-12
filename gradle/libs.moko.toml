@@ -1,0 +1,11 @@
+[versions]
+moko = "0.23.0"
+moko-graphics = "0.9.0"
+
+[libraries]
+mokoLibResources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
+mokoResourcesGenerator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko" }
+mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graphics" }
+
+[plugins]
+mokoResources = { id = "dev.icerock.mobile.multiplatform-resources", version = "0.23.0" }

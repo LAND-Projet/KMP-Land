@@ -1,0 +1,15 @@
+[versions]
+coreKtx = "1.13.1"
+appCompat = "1.7.0"
+compose = "1.6.8"
+worker = "2.9.1"
+
+[libraries]
+coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
+composeUI = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+composeUITooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+composeUIToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+composeFoundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
+workerKtx = { module = "androidx.work:work-runtime-ktx", version.ref = "worker" }

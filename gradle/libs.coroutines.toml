@@ -1,0 +1,7 @@
+[versions]
+coroutineAndroid = "1.7.3"
+coroutineKMM = "1.7.3"
+
+[libraries]
+coroutineAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutineAndroid" }
+coroutineCoreKMM = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutineKMM" }
