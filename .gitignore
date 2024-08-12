@@ -8,7 +8,3 @@ captures
 .cxx
 local.properties
 xcuserdata
-KMP-Idea/iosApp/Pods/
-KMP-Idea/shared/src/iosArm64Main/kotlin/com/kmp/idea/SharedRes.iosArm64.kt
-KMP-Idea/shared/src/iosSimulatorArm64Main/kotlin/com/kmp/idea/SharedRes.iosSimulatorArm64.kt
-KMP-Idea/shared/src/iosX64Main/kotlin/com/kmp/idea/SharedRes.iosX64.kt
