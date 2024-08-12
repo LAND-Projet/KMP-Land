@@ -1,0 +1,88 @@
+name: IOS CI
+on: pull_request
+
+jobs:
+  CIworkflow:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+            java-version: '17'
+            distribution: 'temurin'
+            cache: gradle  
+
+      - uses: gradle/actions/setup-gradle@v3
+        with:
+            gradle-home-cache-cleanup: true
+            cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}
+
+      - name: Cache KMP tooling
+        uses: actions/cache@v4
+        with:
+              path: |
+                      ~/.konan
+              key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
+
+      - uses: ruby/setup-ruby@v1
+        with:
+            working-directory: KMP-Idea/iosApp
+
+      - name: Install Bundler
+        run: gem install bundler
+        working-directory: KMP-Idea/iosApp
+
+      - name: Install gems
+        run: bundle install
+        working-directory: KMP-Idea/iosApp
+      
+      - name: Create Local Properties
+        run: echo "sdk.dir=$ANDROID_HOME" > local.properties
+        working-directory: KMP-Idea
+      
+      - name: Generate Dummy Framework
+        run: ./gradlew :shared:generateDummyFramework
+        working-directory: KMP-Idea
+
+      - name: CocoaPods Cache
+        uses: actions/cache@v2
+        id: cocoapods-cache
+        with:
+          path: |
+            Pods
+            Build/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('KMP-Idea/iosApp/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Clean CocoaPods
+        run: |
+          rm -rf Pods/
+          rm -rf Podfile.lock
+          pod cache clean --all
+        working-directory: KMP-Idea/iosApp
+
+      - name: Install CocoaPods dependencies
+        run: pod install
+        working-directory: KMP-Idea/iosApp
+        
+      - name: Run Tests (No Cache)
+        if: steps.setup.outputs.cache-hit != 'true'
+        run: bundle exec fastlane unit_test
+        working-directory: KMP-Idea/iosApp
+    
+      - name: Run Tests (Cache)
+        if: steps.setup.outputs.cache-hit == 'true'
+        run: bundle exec fastlane unit_test skip_package_dependencies_resolution:true
+        working-directory: KMP-Idea/iosApp
