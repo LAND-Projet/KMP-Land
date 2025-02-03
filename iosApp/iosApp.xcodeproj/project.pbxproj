@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -75,6 +75,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				958B2A022D517B2E006F9E03 /* presentation */,
+				958B2A012D517B19006F9E03 /* util */,
+				958B2A002D517B13006F9E03 /* ui */,
+				958B29FF2D517B0C006F9E03 /* service */,
+				958B29FE2D517B00006F9E03 /* cache */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -90,8 +95,170 @@
 				F6D7C0D348E60122D444C720 /* Pods-iosApp.debug.xcconfig */,
 				041A757E820F00974DEBDD63 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		958B29FE2D517B00006F9E03 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
+		958B29FF2D517B0C006F9E03 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				958B2A122D517C55006F9E03 /* nodle */,
+				958B2A112D517C4D006F9E03 /* image */,
+				958B2A102D517C47006F9E03 /* camera */,
+				958B2A082D517B7F006F9E03 /* analytics */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		958B2A002D517B13006F9E03 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				958B2A072D517B72006F9E03 /* theme */,
+				958B2A062D517B6C006F9E03 /* font */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		958B2A012D517B19006F9E03 /* util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		958B2A022D517B2E006F9E03 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				958B2A052D517B51006F9E03 /* screen */,
+				958B2A042D517B48006F9E03 /* components */,
+				958B2A032D517B3D006F9E03 /* common */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		958B2A032D517B3D006F9E03 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		958B2A042D517B48006F9E03 /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		958B2A052D517B51006F9E03 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				958B2A0C2D517BBE006F9E03 /* settings */,
+				958B2A0B2D517BB3006F9E03 /* profil */,
+				958B2A0A2D517BAD006F9E03 /* home */,
+				958B2A092D517BA0006F9E03 /* auth */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		958B2A062D517B6C006F9E03 /* font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		958B2A072D517B72006F9E03 /* theme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = theme;
+			sourceTree = "<group>";
+		};
+		958B2A082D517B7F006F9E03 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = analytics;
+			sourceTree = "<group>";
+		};
+		958B2A092D517BA0006F9E03 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				958B2A0F2D517C3B006F9E03 /* menu */,
+				958B2A0E2D517BCC006F9E03 /* register */,
+				958B2A0D2D517BC6006F9E03 /* login */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		958B2A0A2D517BAD006F9E03 /* home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		958B2A0B2D517BB3006F9E03 /* profil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = profil;
+			sourceTree = "<group>";
+		};
+		958B2A0C2D517BBE006F9E03 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		958B2A0D2D517BC6006F9E03 /* login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		958B2A0E2D517BCC006F9E03 /* register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = register;
+			sourceTree = "<group>";
+		};
+		958B2A0F2D517C3B006F9E03 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		958B2A102D517C47006F9E03 /* camera */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = camera;
+			sourceTree = "<group>";
+		};
+		958B2A112D517C4D006F9E03 /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		958B2A122D517C55006F9E03 /* nodle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = nodle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

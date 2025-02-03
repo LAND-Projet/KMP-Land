@@ -1,4 +1,4 @@
-package com.kmp.idea.android
+package com.kmp.idea.android.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
