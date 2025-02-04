@@ -2,7 +2,7 @@
 ktor = "2.3.3"
 
 [libraries]
-ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
-ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
-ktor-android = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
-ktor-ios = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktorCio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktorAndroid = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktorIos = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }

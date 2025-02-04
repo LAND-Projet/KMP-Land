@@ -4,9 +4,9 @@ firebase-android = "33.1.2"
 firebase-android-messaging = "24.0.0"
 
 [libraries]
-firebase-authentication = { module = "dev.gitlive:firebase-auth", version.ref = "firebase-kmp" }
-firebase-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebase-kmp" }
-firebase-storage = { module = "dev.gitlive:firebase-storage", version.ref = "firebase-kmp" }
+firebaseAuthentication = { module = "dev.gitlive:firebase-auth", version.ref = "firebase-kmp" }
+firebaseFirestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebase-kmp" }
+firebaseStorage = { module = "dev.gitlive:firebase-storage", version.ref = "firebase-kmp" }
 android-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-android" }
 android-firebase-ktx-storage = { module = "com.google.firebase:firebase-storage-ktx" }
 android-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }

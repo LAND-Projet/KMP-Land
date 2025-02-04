@@ -43,22 +43,48 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
             api(moko.mokoLibResources)
+
             implementation(sqldelight.sqlCommon)
+
+            implementation(ktor.ktorCore)
+            implementation(ktor.ktorCio)
+
+            implementation(coroutines.coroutineCoreKMM)
+
+            implementation(kotlinx.kotlinxSerialization)
+            implementation(kotlinx.kotlinxDatetime)
+
+            implementation(other.napier)
+            implementation(other.slf4j)
+
+            api(koin.koinCore)
+
+            implementation(firebase.firebaseAuthentication)
+            implementation(firebase.firebaseFirestore)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
-        androidMain.dependencies {
-            implementation(sqldelight.sqlAndroid)
+        val androidMain by getting {
+            kotlin.srcDir("build/generated/moko/androidMain/src")
+            dependencies {
+                implementation(sqldelight.sqlAndroid)
+                implementation(ktor.ktorAndroid)
+            }
         }
         androidNativeTest.dependencies {
+            implementation(test.junit)
+            implementation(test.mockk)
+
             implementation(sqldelight.sqlDriver)
             implementation(sqldelight.sqlJKvm)
         }
         iosMain.dependencies {
             implementation(sqldelight.sqlIos)
+            implementation(ktor.ktorIos)
+            implementation(other.touchlabStately)
         }
     }
 }

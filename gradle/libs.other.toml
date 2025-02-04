@@ -8,7 +8,7 @@ rx-permission = "0.10.0"
 [libraries]
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
-touchlab-stately = { module = "co.touchlab:stately-common", version.ref = "stately" }
+touchlabStately = { module = "co.touchlab:stately-common", version.ref = "stately" }
 sweet-toast = { module = "com.github.TalhaFaki:ComposableSweetToast", version.ref = "sweet-toast" }
 nodle-sdk = { module = "io.nodle:nodlesdk-rc-lp", version = "e61c593b4d" }
 rx-permission = { module = "com.vanniktech:rxpermission", version.ref = "rx-permission" }
