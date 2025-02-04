@@ -5,6 +5,7 @@ plugins {
     alias(google.plugins.googleServices)
     alias(other.plugins.ktlint)
     alias(moko.plugins.mokoResources)
+    alias(sqldelight.plugins.sqldelightId)
 }
 
 kotlin {
@@ -18,6 +19,11 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
+            linkerOpts.add("-lsqlite3")
+        }
+    }
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -31,17 +37,40 @@ kotlin {
             export(moko.mokoGraphics)
             isStatic = true
         }
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        extraSpecAttributes["exclude_files"] = "['src/commonMain/resources/MR/**']"
     }
     
     sourceSets {
         commonMain.dependencies {
             //put your multiplatform dependencies here
             api(moko.mokoLibResources)
+            implementation(sqldelight.sqlCommon)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+        androidMain.dependencies {
+            implementation(sqldelight.sqlAndroid)
+        }
+        androidNativeTest.dependencies {
+            implementation(sqldelight.sqlDriver)
+            implementation(sqldelight.sqlJKvm)
+        }
+        iosMain.dependencies {
+            implementation(sqldelight.sqlIos)
+        }
     }
+}
+
+sqldelight {
+    databases {
+        create("IdeaDatabase") {
+            packageName.set("com.kmp.idea.database")
+            srcDirs.setFrom("src/commonMain/sqldelight")
+        }
+    }
+    linkSqlite = true
 }
 
 android {
