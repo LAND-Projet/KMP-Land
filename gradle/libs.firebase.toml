@@ -7,8 +7,8 @@ firebase-android-messaging = "24.0.0"
 firebaseAuthentication = { module = "dev.gitlive:firebase-auth", version.ref = "firebase-kmp" }
 firebaseFirestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebase-kmp" }
 firebaseStorage = { module = "dev.gitlive:firebase-storage", version.ref = "firebase-kmp" }
-android-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-android" }
-android-firebase-ktx-storage = { module = "com.google.firebase:firebase-storage-ktx" }
-android-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
-android-firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebase-android-messaging" }
-android-firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebase-android-messaging" }
+androidFirebase = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-android" }
+androidFirebaseKTXStorage = { module = "com.google.firebase:firebase-storage-ktx" }
+androidFirebaseAnalytics = { module = "com.google.firebase:firebase-analytics" }
+androidFirebaseMessaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebase-android-messaging" }
+androidFirebaseMessagingKTX = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebase-android-messaging" }

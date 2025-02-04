@@ -4,14 +4,20 @@ slf4j = "2.0.0"
 stately = "2.0.5"
 sweet-toast = "1.0.1"
 rx-permission = "0.10.0"
+geohash = "1.0"
+introshowcaseview = "2.0.1"
+twyper = "0.0.4"
 
 [libraries]
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 touchlabStately = { module = "co.touchlab:stately-common", version.ref = "stately" }
-sweet-toast = { module = "com.github.TalhaFaki:ComposableSweetToast", version.ref = "sweet-toast" }
-nodle-sdk = { module = "io.nodle:nodlesdk-rc-lp", version = "e61c593b4d" }
-rx-permission = { module = "com.vanniktech:rxpermission", version.ref = "rx-permission" }
+sweetToast = { module = "com.github.TalhaFaki:ComposableSweetToast", version.ref = "sweet-toast" }
+nodleSdk = { module = "io.nodle:nodlesdk-rc-lp", version = "e61c593b4d" }
+rxPermission = { module = "com.vanniktech:rxpermission", version.ref = "rx-permission" }
+geoLib = { module = "com.github.drfonfon:android-kotlin-geohash", version.ref = "geohash" }
+canopasView = { module = "com.canopas.intro-showcase-view:introshowcaseview", version.ref = "introshowcaseview" }
+twyper = { module = "com.github.theapache64:twyper", version.ref = "twyper" }
 
 [plugins]
-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.5.1" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "12.1.2" }

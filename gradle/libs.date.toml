@@ -2,5 +2,5 @@
 max-keppeler = "1.3.0"
 
 [libraries]
-date-picker-core = { module = "com.maxkeppeler.sheets-compose-dialogs:core", version.ref = "max-keppeler" }
-date-picker-calendar = { module = "com.maxkeppeler.sheets-compose-dialogs:calendar", version.ref = "max-keppeler" }
+datePickerCore = { module = "com.maxkeppeler.sheets-compose-dialogs:core", version.ref = "max-keppeler" }
+datePickerCalendar = { module = "com.maxkeppeler.sheets-compose-dialogs:calendar", version.ref = "max-keppeler" }
