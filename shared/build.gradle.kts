@@ -1,5 +1,4 @@
 plugins {
-    id("org.jetbrains.compose") version "1.5.0" apply false
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
@@ -7,6 +6,7 @@ plugins {
     alias(other.plugins.ktlint)
     alias(moko.plugins.mokoResources)
     alias(sqldelight.plugins.initiliazer)
+    //id("app.cash.sqldelight") version "2.0.2" apply false
 }
 
 kotlin {
