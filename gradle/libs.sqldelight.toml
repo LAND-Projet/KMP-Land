@@ -9,4 +9,4 @@ sqlAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "sql
 sqlJKvm = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqldelight" }
 
 [plugins]
-sqldelightId = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+initiliazer = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
