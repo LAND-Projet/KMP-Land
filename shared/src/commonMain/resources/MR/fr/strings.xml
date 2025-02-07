@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
+    <string name="validate_description_error_blank">La description ne peux \être vide</string>
+    <string name="validate_description_error_contains">La Description doit contenir au moins des chiffres et des lettres</string>
+    <string name="validate_email_error_blank">Le champ email ne peux \être vide</string>
+    <string name="validate_email_error_regex_match">L\'email n\'est pas valide</string>
+    <string name="validate_password_error_blank">Le mot de passe doit contenir au moins 8 caract\ères ou plus</string>
+    <string name="validate_password_error_contains">Le mot de passe doit contenir au moins des chiffres et des lettres</string>
+    <string name="validate_repeated_password_error_equal">Le mot de passe est diff\érent du mot de passe entr\é</string>
+    <string name="validate_repeated_password_error_length">Le mot de passe doit contenir au moins 8 caract\ères ou plus</string>
+    <string name="validate_repeated_password_error_contains">Le mot de passe doit contenir au moins des chiffres et des lettres</string>
+    <string name="validate_username_error_blank">Le champ username ne peux \être vide</string>
 </resources>

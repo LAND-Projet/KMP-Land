@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
+    <string name="validate_description_error_blank">The description cannot be empty</string>
+    <string name="validate_description_error_contains">The Description must contain at least numbers and letters</string>
+    <string name="validate_email_error_blank">The email field cannot be empty</string>
+    <string name="validate_email_error_regex_match">The email is not valid</string>
+    <string name="validate_password_error_blank">The password must contain at least 8 characters or more</string>
+    <string name="validate_password_error_contains">The password must contain at least numbers and letters</string>
+    <string name="validate_repeated_password_error_equal">The password is different from the entered password</string>
+    <string name="validate_repeated_password_error_length">The password must contain at least 8 characters or more</string>
+    <string name="validate_repeated_password_error_contains">The password must contain at least numbers and letters</string>
+    <string name="validate_username_error_blank">The username field cannot be empty</string>
 </resources>
