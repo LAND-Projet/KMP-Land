@@ -5,7 +5,7 @@ plugins {
     alias(google.plugins.googleServices)
     alias(other.plugins.ktlint)
     alias(moko.plugins.mokoResources)
-    alias(sqldelight.plugins.initiliazer)
+    //alias(sqldelight.plugins.initiliazer)
     //id("app.cash.sqldelight") version "2.0.2" apply false
 }
 
@@ -20,11 +20,11 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+    /*targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
             linkerOpts.add("-lsqlite3")
         }
-    }
+    }*/
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -46,7 +46,7 @@ kotlin {
         commonMain.dependencies {
             api(moko.mokoLibResources)
 
-            implementation(sqldelight.sqlCommon)
+            //implementation(sqldelight.sqlCommon)
 
             implementation(ktor.ktorCore)
             implementation(ktor.ktorCio)
@@ -71,7 +71,7 @@ kotlin {
         val androidMain by getting {
             kotlin.srcDir("build/generated/moko/androidMain/src")
             dependencies {
-                implementation(sqldelight.sqlAndroid)
+                //implementation(sqldelight.sqlAndroid)
                 implementation(ktor.ktorAndroid)
             }
         }
@@ -79,18 +79,18 @@ kotlin {
             implementation(test.junit)
             implementation(test.mockk)
 
-            implementation(sqldelight.sqlDriver)
-            implementation(sqldelight.sqlJKvm)
+            //implementation(sqldelight.sqlDriver)
+            //implementation(sqldelight.sqlJKvm)
         }
         iosMain.dependencies {
-            implementation(sqldelight.sqlIos)
+            //implementation(sqldelight.sqlIos)
             implementation(ktor.ktorIos)
             implementation(other.touchlabStately)
         }
     }
 }
 
-sqldelight {
+/*sqldelight {
     databases {
         create("IdeaDatabase") {
             packageName.set("com.kmp.idea.database")
@@ -98,7 +98,7 @@ sqldelight {
         }
     }
     linkSqlite = true
-}
+}*/
 
 android {
     namespace = "com.kmp.idea"
