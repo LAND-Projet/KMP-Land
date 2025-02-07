@@ -1,4 +1,4 @@
-package com.kmp.idea.domain.repository
+package com.kmp.idea.domain.remote
 
 import com.kmp.idea.domain.model.User
 

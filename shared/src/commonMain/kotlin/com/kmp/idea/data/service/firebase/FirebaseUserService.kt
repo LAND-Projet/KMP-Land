@@ -1,7 +1,7 @@
 package com.kmp.idea.data.service.firebase
 
 import com.kmp.idea.domain.model.User
-import com.kmp.idea.domain.repository.IFirebaseUserService
+import com.kmp.idea.domain.remote.IFirebaseUserService
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.FirebaseAuth
 import dev.gitlive.firebase.auth.auth

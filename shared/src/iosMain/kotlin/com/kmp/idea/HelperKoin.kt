@@ -2,12 +2,10 @@ package com.kmp.idea
 
 import com.kmp.idea.di.appModule
 import com.kmp.idea.di.platformModule
-import com.kmp.idea.domain.repository.IFirebaseAuthService
-import com.kmp.idea.domain.repository.IFirebasePostService
-import com.kmp.idea.domain.repository.IFirebaseUserService
+import com.kmp.idea.domain.remote.IFirebaseAuthService
+import com.kmp.idea.domain.remote.IFirebasePostService
+import com.kmp.idea.domain.remote.IFirebaseUserService
 import org.koin.core.context.startKoin
-import org.koin.core.module.Module
-import org.koin.dsl.module
 
 fun initKoin() {
     val koinApp = startKoin {

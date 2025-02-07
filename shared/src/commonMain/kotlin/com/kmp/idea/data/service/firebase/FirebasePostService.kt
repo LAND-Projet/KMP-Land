@@ -1,6 +1,6 @@
 package com.kmp.idea.data.service.firebase
 
-import com.kmp.idea.domain.repository.IFirebasePostService
+import com.kmp.idea.domain.remote.IFirebasePostService
 import com.kmp.idea.domain.model.Post
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.firestore.firestore

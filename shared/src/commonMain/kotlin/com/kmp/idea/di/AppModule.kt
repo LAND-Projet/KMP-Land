@@ -5,9 +5,9 @@ import com.kmp.idea.core.helper.NetworkCallerImpl
 import com.kmp.idea.data.service.firebase.FirebaseAuthService
 import com.kmp.idea.data.service.firebase.FirebasePostService
 import com.kmp.idea.data.service.firebase.FirebaseUserService
-import com.kmp.idea.domain.repository.IFirebaseAuthService
-import com.kmp.idea.domain.repository.IFirebasePostService
-import com.kmp.idea.domain.repository.IFirebaseUserService
+import com.kmp.idea.domain.remote.IFirebaseAuthService
+import com.kmp.idea.domain.remote.IFirebasePostService
+import com.kmp.idea.domain.remote.IFirebaseUserService
 import io.ktor.client.HttpClient
 import org.koin.dsl.module
 
