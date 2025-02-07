@@ -1,6 +1,6 @@
 package com.kmp.idea.data.service.firebase
 
-import com.dardev.land.domain.repository.IFirebaseAuthService
+import com.kmp.idea.domain.repository.IFirebaseAuthService
 import com.kmp.idea.domain.model.SignInData
 import com.kmp.idea.domain.model.SignUpData
 import dev.gitlive.firebase.Firebase
@@ -21,8 +21,7 @@ class FirebaseAuthService : IFirebaseAuthService {
         val user = hashMapOf(
             "Description" to "",
             "ProfilPicture" to "",
-            "Username" to signUpData.username,
-            "IsPrivate" to signUpData.IsPrivate
+            "Email" to signUpData.email,
         )
         auth.createUserWithEmailAndPassword(signUpData.email.trim(), signUpData.password)
         auth.currentUser?.uid?.let { db.collection("user").document(it).set(user) }

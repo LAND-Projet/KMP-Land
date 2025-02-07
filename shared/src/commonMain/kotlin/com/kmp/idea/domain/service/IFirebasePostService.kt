@@ -1,6 +1,6 @@
 package com.kmp.idea.domain.repository
 
-import com.kmp.idead.domain.model.Post
+import com.kmp.idea.domain.model.Post
 
 interface IFirebasePostService {
     suspend fun getAllPost(): List<Post>

@@ -1,6 +1,6 @@
 package com.kmp.idea.domain.repository
 
-import com.dardev.land.domain.model.User
+import com.kmp.idea.domain.model.User
 
 interface IFirebaseUserService {
     suspend fun getUserDataById(id:String): User

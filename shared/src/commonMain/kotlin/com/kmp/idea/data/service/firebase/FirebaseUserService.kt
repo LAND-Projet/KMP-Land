@@ -1,14 +1,12 @@
 package com.kmp.idea.data.service.firebase
 
-import com.dardev.land.domain.repository.IFirebaseUserService
-import com.kmp.idea.domain.model.User
-
+import com.kmp.idea.domain.repository.IFirebaseUserService
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.FirebaseAuth
 import dev.gitlive.firebase.auth.auth
 import dev.gitlive.firebase.firestore.firestore
 
-class LandFirebaseUser: ILandFirebaseUser {
+class FirebaseUserService: IFirebaseUserService {
     private val auth: FirebaseAuth = Firebase.auth
     private val db = Firebase.firestore
 
