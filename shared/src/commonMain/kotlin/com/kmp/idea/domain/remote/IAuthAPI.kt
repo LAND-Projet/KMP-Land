@@ -5,7 +5,7 @@ import com.kmp.idea.domain.model.SignUpData
 import com.kmp.idea.domain.model.TokenConnexion
 
 interface IAuthAPI {
-    suspend fun signUpToLandApp(landSignUpData: SignUpData): TokenConnexion?
-    suspend fun signInToLandApp(landSignInData: SignInData): TokenConnexion?
-    suspend fun refreshLandJWTToken(token: String,userId: String): TokenConnexion?
+    suspend fun signUpToApp(signUpData: SignUpData): TokenConnexion?
+    suspend fun signInToApp(signInData: SignInData): TokenConnexion?
+    suspend fun refreshJWTToken(token: String,userId: String): TokenConnexion?
 }
