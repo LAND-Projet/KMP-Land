@@ -12,7 +12,6 @@ class RefreshSessionWorker(
     workerParams: WorkerParameters,
     private val sessionCache: ISessionCache,
 ) : CoroutineWorker(context, workerParams) {
-
     override suspend fun doWork(): Result {
         val session = sessionCache.getActiveSession()
         return if (session != null) {
@@ -28,12 +27,13 @@ class RefreshSessionWorker(
         val userId = session.dataSession.currentUserGuid
 
         val sessionRefresh = "test"
-        val newSession = sessionRefresh?.let {
-            Session(
-                "",
-                TokenConnexion("","")
-            )
-        }
+        val newSession =
+            sessionRefresh?.let {
+                Session(
+                    "",
+                    TokenConnexion("", ""),
+                )
+            }
 
         if (newSession != null) {
             sessionCache.saveSession(newSession)

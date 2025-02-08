@@ -9,6 +9,12 @@ plugins {
     alias(other.plugins.ktlint)
 }
 
+allprojects {
+    repositories {
+        maven(url = "https://jitpack.io")
+    }
+}
+
 android {
     namespace = "com.kmp.idea.android"
     compileSdk = 34
@@ -23,12 +29,12 @@ android {
         resValue(
             "string",
             "GOOGLE_API_KEY",
-            "\"${properties.getProperty("GOOGLE_API_KEY")}\""
+            "\"${properties.getProperty("GOOGLE_API_KEY")}\"",
         )
         resValue(
             "string",
             "GOOGLE_APP_ID",
-            "\"${properties.getProperty("GOOGLE_APP_ID")}\""
+            "\"${properties.getProperty("GOOGLE_APP_ID")}\"",
         )
     }
     buildFeatures {
@@ -67,7 +73,7 @@ android {
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }

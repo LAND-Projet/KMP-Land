@@ -11,13 +11,12 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class KoinWorkerFactory : WorkerFactory(), KoinComponent {
-
     private val sessionCache: ISessionCache by inject()
 
     override fun createWorker(
         appContext: Context,
         workerClassName: String,
-        workerParameters: WorkerParameters
+        workerParameters: WorkerParameters,
     ): ListenableWorker? {
         return when (workerClassName) {
             RefreshSessionWorker::class.java.name -> {

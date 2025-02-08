@@ -1,18 +1,16 @@
 package com.kmp.idea.android.ui.theme
 
-import com.kmp.idea.core.presentation.ColorsApp
-
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.kmp.idea.core.presentation.ColorsApp
 
 val darkBackground = Color(ColorsApp.DarkBackground)
 val darkForeground = Color(ColorsApp.DarkForeground)
 
 val lightBackground = Color(ColorsApp.LightBackground)
 val lightForeground = Color(ColorsApp.LightForeground)
-
 
 val successColor = Color(ColorsApp.SuccessGreen)
 val errorColor = Color(ColorsApp.ErrorRed)

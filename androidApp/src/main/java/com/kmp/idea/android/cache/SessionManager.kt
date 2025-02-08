@@ -10,25 +10,32 @@ import com.kmp.idea.android.cache.worker.RefreshSessionWorker
 import java.util.concurrent.TimeUnit
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun scheduleSessionRefresh(sessionCache: ISessionCache, context: Context) {
+fun scheduleSessionRefresh(
+    sessionCache: ISessionCache,
+    context: Context,
+) {
     val session = sessionCache.getActiveSession()
 
     if (session != null) {
-        val refreshWorkRequest = PeriodicWorkRequestBuilder<RefreshSessionWorker>(
-            24,
-            TimeUnit.HOURS
-        ).build()
+        val refreshWorkRequest =
+            PeriodicWorkRequestBuilder<RefreshSessionWorker>(
+                24,
+                TimeUnit.HOURS,
+            ).build()
 
         WorkManager.getInstance(context)
             .enqueueUniquePeriodicWork(
                 "RefreshSessionWork",
                 ExistingPeriodicWorkPolicy.UPDATE,
-                refreshWorkRequest
+                refreshWorkRequest,
             )
     }
 }
 
-fun clearSessionAndCancelWork(sessionCache: ISessionCache, context: Context) {
+fun clearSessionAndCancelWork(
+    sessionCache: ISessionCache,
+    context: Context,
+) {
     sessionCache.clearSession()
     WorkManager.getInstance(context).cancelUniqueWork("RefreshSessionWork")
 }

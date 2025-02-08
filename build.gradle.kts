@@ -20,7 +20,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath("app.cash.sqldelight:gradle-plugin:2.0.2")
+        //classpath("app.cash.sqldelight:gradle-plugin:2.0.2")
+        classpath(moko.mokoResourcesGenerator)
     }
 }
 

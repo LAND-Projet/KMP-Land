@@ -113,9 +113,8 @@ android {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "com.kmp.idea" // required
-    multiplatformResourcesClassName = "SharedRes"
-    disableStaticFrameworkWarning = true
+    resourcesPackage.set("com.kmp.idea")
+    resourcesClassName.set("SharedRes")
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {

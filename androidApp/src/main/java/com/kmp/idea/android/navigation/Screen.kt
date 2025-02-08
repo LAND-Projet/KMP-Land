@@ -25,13 +25,12 @@ sealed class Screen(val route: String) {
 
     object CameraPage : Screen(
         "camera_screen/" +
-                "{$DESCRIPTION_POST_ARGUMENT_KEY}"
+            "{$DESCRIPTION_POST_ARGUMENT_KEY}",
     ) {
-        fun passDataLocation(
-            description: String
-        ): String {
+        fun passDataLocation(description: String): String {
             return "camera_screen/$description"
         }
+
         fun passNothing(): String {
             return "camera_screen/ "
         }
@@ -41,7 +40,7 @@ sealed class Screen(val route: String) {
 
     object ProfilPage : Screen(
         "profil_screen/" +
-                "{$PROFIL_USERID_ARGUMENT_KEY}"
+            "{$PROFIL_USERID_ARGUMENT_KEY}",
     ) {
         fun passDataForProfil(userId: String): String {
             return "profil_screen/$userId"
@@ -53,5 +52,4 @@ sealed class Screen(val route: String) {
     object ParameterPage : Screen("parameter_screen")
 
     object SwipePage : Screen("swipe_screen")
-
 }
