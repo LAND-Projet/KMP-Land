@@ -6,6 +6,7 @@ moko-graphics = "0.9.0"
 mokoLibResources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
 mokoResourcesGenerator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko" }
 mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graphics" }
+mokoCompose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko" }
 
 [plugins]
 mokoResources = { id = "dev.icerock.mobile.multiplatform-resources" }

@@ -84,7 +84,7 @@ tasks.getByPath("preBuild").dependsOn("ktlintFormat")
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     android.set(true)
     ignoreFailures.set(false)
-    disabledRules.set(setOf("final-newline", "no-wildcard-imports"))
+    disabledRules.set(setOf("final-newline", "no-wildcard-imports", "function-naming"))
     reporters {
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)

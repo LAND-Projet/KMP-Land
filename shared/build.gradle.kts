@@ -1,3 +1,5 @@
+import dev.icerock.gradle.MRVisibility
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
@@ -73,6 +75,7 @@ kotlin {
             dependencies {
                 //implementation(sqldelight.sqlAndroid)
                 implementation(ktor.ktorAndroid)
+                //api(moko.mokoCompose)
             }
         }
         androidNativeTest.dependencies {
@@ -113,17 +116,19 @@ android {
 }
 
 multiplatformResources {
-    resourcesPackage.set("com.kmp.idea")
-    resourcesClassName.set("SharedRes")
+    resourcesPackage = "com.kmp.idea"
+    resourcesClassName = "SharedRes"
+    resourcesVisibility = MRVisibility.Internal
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     verbose.set(true)
     ignoreFailures.set(false)
-    disabledRules.set(setOf("final-newline", "no-wildcard-imports"))
+    disabledRules.set(setOf("final-newline", "no-wildcard-imports","function-naming"))
     reporters {
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.SARIF)
+
     }
 }

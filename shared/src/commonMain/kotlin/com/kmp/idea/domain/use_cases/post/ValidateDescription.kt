@@ -8,7 +8,7 @@ class ValidateDescription {
         if (content.isBlank()) {
             return ValidateResult(
                 successful = false,
-                errorMessage = com.kmp.idea.SharedRes.strings.validate_description_error_blank
+                errorMessage = SharedRes.strings.validate_description_error_blank
             )
         }
         val containsLettersAndDigits = content.any { it.isDigit() } || content.any { it.isLetter() }
