@@ -96,7 +96,7 @@ fun NavModel(
             SettingsScreen(navController = navController, context = context)
         }
         composable(route = Screen.NotificationPage.route) {
-            
+
         }
     }
 }
