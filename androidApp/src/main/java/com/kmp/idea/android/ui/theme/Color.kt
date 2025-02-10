@@ -12,6 +12,9 @@ val darkForeground = Color(ColorsApp.DarkForeground)
 val lightBackground = Color(ColorsApp.LightBackground)
 val lightForeground = Color(ColorsApp.LightForeground)
 
+val lightBottomTopBarBackground = Color(ColorsApp.LightBottomTopBackground)
+val darkBottomTopBarBackground = Color(ColorsApp.DarkBottomTopBackground)
+
 val successColor = Color(ColorsApp.SuccessGreen)
 val errorColor = Color(ColorsApp.ErrorRed)
 val infoColor = Color(ColorsApp.InfoBlue)
@@ -59,5 +62,29 @@ val ColorScheme.profilContentTop
     get() = if (isSystemInDarkTheme()) darkBackground else lightBackground
 
 val ColorScheme.profilContent
+    @Composable
+    get() = if (isSystemInDarkTheme()) darkForeground else lightForeground
+
+val ColorScheme.textFieldBackground
+    @Composable
+    get() = if (isSystemInDarkTheme()) lightBackground else darkForeground
+
+val ColorScheme.textFieldContent
+    @Composable
+    get() = if (isSystemInDarkTheme()) lightForeground else lightForeground
+
+val ColorScheme.bottomBarBackground
+    @Composable
+    get() = if (isSystemInDarkTheme()) darkBottomTopBarBackground else lightBottomTopBarBackground
+
+val ColorScheme.topBarBackground
+    @Composable
+    get() = if (isSystemInDarkTheme()) darkBottomTopBarBackground else lightBottomTopBarBackground
+
+val ColorScheme.popUpBackground
+    @Composable
+    get() = if (isSystemInDarkTheme()) darkBackground else lightBackground
+
+val ColorScheme.popUpContent
     @Composable
     get() = if (isSystemInDarkTheme()) darkForeground else lightForeground

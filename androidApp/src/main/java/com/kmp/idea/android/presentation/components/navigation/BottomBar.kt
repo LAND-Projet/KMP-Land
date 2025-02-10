@@ -18,12 +18,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.dardev.land.android.R
-import com.dardev.land.android.navigation.Screen
-import com.dardev.land.android.presentation.common.LandInfoButton
-import com.dardev.land.android.presentation.common.LandNavigationIconButton
-import com.dardev.land.android.ui.theme.profilContentTop
-import com.dardev.land.android.ui.theme.textColor
+import com.kmp.idea.android.R
+import com.kmp.idea.android.navigation.Screen
+import com.kmp.idea.android.presentation.common.NavigationIconButton
+import com.kmp.idea.android.ui.theme.bottomBarBackground
 
 @Composable
 fun BottomBar(
@@ -32,7 +30,6 @@ fun BottomBar(
     userID: MutableState<String>,
     reloadPostFunc: (() -> Unit)? = null
 ) {
-    var popupControl = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -54,33 +51,31 @@ fun BottomBar(
         ) {
             Row(
                 modifier = modifier
-                    .width(322.dp)
+                    .fillMaxWidth()
                     .height(81.dp)
                     .background(
-                        color = MaterialTheme.colorScheme.profilContentTop,
+                        color = MaterialTheme.colorScheme.bottomBarBackground,
                     )
                     .padding(start = 30.dp, top = 15.dp, bottom = 15.dp, end = 30.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                LandNavigationIconButton(
-                    event = { navController.navigate(Screen.Home.route) },
+                NavigationIconButton(
+                    event = { navController.navigate(Screen.HomePage.route) },
                     content = com.dardev.land.R.drawable.homeiconlight,
                     isActive = true
                 )
                 Spacer(modifier = Modifier.width(15.dp))
-                LandInfoButton(
-                    icon = painterResource(id = com.dardev.land.R.drawable.pinlocation),
-                    smallText = "Swipy",
-                    textColor = MaterialTheme.colorScheme.textColor,
-                    clickEvent = { navController.navigate(Screen.SwipePlace.route) }
+                NavigationIconButton(
+                    event = { navController.navigate(Screen.HomePage.route) },
+                    content = com.dardev.land.R.drawable.homeiconlight,
+                    isActive = false
                 )
                 Spacer(modifier = Modifier.width(15.dp))
-                LandNavigationIconButton(
+                NavigationIconButton(
                     event = {
                         navController.navigate(
-                            Screen.Profil.passDataForProfil(
-                                userId = userID.value,
-                                isYourProfil = true
+                            Screen.ProfilPage.passDataForProfil(
+                                userId = userID.value
                             )
                         )
                     },
@@ -98,18 +93,6 @@ fun BottomBar(
                     LandIconButton(reloadPostFunc, R.drawable.ic_refresh)
                 }*/
             }
-        }
-        if (popupControl.value) {
-            LandPopUpAddNavigation(
-                navController,
-                onCreatePostClick = {
-                    navController.navigate(Screen.Camera.passNothing())
-                },
-                onCreateEventClick = {
-                    navController.navigate(Screen.AddPart.AddEvent.passNothing())
-                },
-                openState = popupControl
-            )
         }
     }
 }

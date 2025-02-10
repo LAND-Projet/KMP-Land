@@ -4,6 +4,9 @@ object ColorsApp {
     const val LightBackground = 0xFFF5F5F5
     const val DarkBackground = 0xFF121212
 
+    const val LightBottomTopBackground = 0xFF007AFF
+    const val DarkBottomTopBackground = 0xFFFFD60A
+
     const val LightForeground = 0xFF000000
     const val DarkForeground = 0xFFC0C0C0
 

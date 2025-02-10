@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -26,10 +27,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.dardev.land.android.R
-import com.dardev.land.android.ui.theme.blueShade
-import com.dardev.land.android.ui.theme.lightGrey
-import com.dardev.land.android.ui.theme.navyBlue
+import com.kmp.idea.android.R
+import com.kmp.idea.android.ui.theme.buttonBackground
+import com.kmp.idea.android.ui.theme.errorColor
+import com.kmp.idea.android.ui.theme.lightForeground
 
 @Composable
 fun LoadingButton() {
@@ -43,7 +44,6 @@ fun LoadingButton() {
         ),
         label = ""
     )
-    val gradientColor = listOf(blueShade, navyBlue)
 
     Box(
         modifier = Modifier
@@ -52,7 +52,7 @@ fun LoadingButton() {
             .fillMaxWidth()
             .shadow(3.dp, RoundedCornerShape(50.dp))
             .background(
-                brush = Brush.horizontalGradient(colors = gradientColor),
+                color = MaterialTheme.colorScheme.buttonBackground,
                 shape = RoundedCornerShape(50.dp)
             )
             .clickable(
@@ -83,7 +83,6 @@ fun LoadingNotificationButton() {
         ),
         label = ""
     )
-    val gradientColor = listOf(blueShade, navyBlue)
 
     Box(
         modifier = Modifier
@@ -92,7 +91,7 @@ fun LoadingNotificationButton() {
             .fillMaxWidth()
             .shadow(3.dp, RoundedCornerShape(50.dp))
             .background(
-                brush = Brush.horizontalGradient(colors = gradientColor),
+                color = MaterialTheme.colorScheme.buttonBackground,
                 shape = RoundedCornerShape(50.dp)
             )
             .clickable(
@@ -131,7 +130,7 @@ fun LoadingNotificationRefuseButton() {
             .fillMaxWidth()
             .shadow(3.dp, RoundedCornerShape(50.dp))
             .background(
-                color = lightGrey,
+                color = errorColor,
                 shape = RoundedCornerShape(50.dp)
             )
             .clickable(
@@ -146,7 +145,7 @@ fun LoadingNotificationRefuseButton() {
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
             modifier = Modifier.rotate(rotation),
-            tint = navyBlue
+            tint = lightForeground
         )
     }
 }
@@ -163,7 +162,6 @@ fun LoadingParameterButton() {
         ),
         label = ""
     )
-    val gradientColor = listOf(blueShade, navyBlue)
 
     Box(
         modifier = Modifier
@@ -172,7 +170,7 @@ fun LoadingParameterButton() {
             .fillMaxWidth()
             .shadow(3.dp, RoundedCornerShape(50.dp))
             .background(
-                brush = Brush.horizontalGradient(colors = gradientColor),
+                color = MaterialTheme.colorScheme.buttonBackground,
                 shape = RoundedCornerShape(50.dp)
             )
             .clickable(

@@ -17,12 +17,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.dardev.land.android.ui.theme.blueShade
-import com.dardev.land.android.ui.theme.errorColor
-import com.dardev.land.android.ui.theme.iconbuttonBackground
-import com.dardev.land.android.ui.theme.iconbuttonContent
-import com.dardev.land.android.ui.theme.navyBlue
-import com.dardev.land.android.ui.theme.successColor
+import com.kmp.idea.android.ui.theme.errorColor
+import com.kmp.idea.android.ui.theme.iconbuttonBackground
+import com.kmp.idea.android.ui.theme.iconbuttonContent
+import com.kmp.idea.android.ui.theme.successColor
+import com.kmp.idea.android.ui.theme.infoColor
+import com.kmp.idea.android.ui.theme.lightBackground
 
 @Composable
 fun IconButton(event: () -> Unit, content: Int, modifier: Modifier = Modifier) {
@@ -93,13 +93,13 @@ fun NavigationIconButton(event: () -> Unit, content: Int, isActive: Boolean) {
                 .width(38.dp)
                 .height(39.dp),
             shape = RoundedCornerShape(15.dp),
-            colors = CardDefaults.cardColors(blueShade)
+            colors = CardDefaults.cardColors(infoColor)
         ) {
             IconButton(onClick = event) {
                 Icon(
                     painter = painterResource(id = content),
                     contentDescription = "",
-                    tint = navyBlue
+                    tint = lightBackground
                 )
             }
         }

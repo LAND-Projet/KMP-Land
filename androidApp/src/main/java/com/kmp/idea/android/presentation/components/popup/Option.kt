@@ -18,10 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.dardev.land.SharedRes
-import com.dardev.land.android.ui.theme.lightGrey
-import com.dardev.land.android.ui.theme.navyBlue
-import com.dardev.land.android.util.AndroidStringResource
+import com.kmp.idea.SharedRes
+import com.kmp.idea.android.presentation.common.ImageButton
+import com.kmp.idea.android.ui.theme.popUpBackground
+import com.kmp.idea.android.ui.theme.popUpContent
 import com.kmp.idea.android.util.AndroidStringResource
 
 @Composable
@@ -39,7 +39,7 @@ fun OptionDialog(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = lightGrey,
+                        color = MaterialTheme.colorScheme.popUpBackground,
                         shape = RoundedCornerShape(20.dp)
                     )
                     .padding(16.dp)
@@ -49,7 +49,7 @@ fun OptionDialog(
             ) {
                 Text(
                     text = AndroidStringResource(id = SharedRes.strings.select_picture_text_label),
-                    color = navyBlue,
+                    color = MaterialTheme.colorScheme.popUpContent,
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(modifier = Modifier.height(30.dp))

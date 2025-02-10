@@ -18,12 +18,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.dardev.land.android.R
-import com.dardev.land.android.ui.theme.errorColor
-import com.dardev.land.android.ui.theme.lightGrey
-import com.dardev.land.android.ui.theme.navyBlue
-import com.dardev.land.android.util.AndroidStringResource
-import com.dardev.land.domain.use_cases.ValidateResult
+import com.kmp.idea.android.R
+import com.kmp.idea.android.ui.theme.errorColor
+import com.kmp.idea.android.ui.theme.textFieldBackground
+import com.kmp.idea.android.ui.theme.textFieldContent
+import com.kmp.idea.android.ui.theme.warningColor
+import com.kmp.idea.android.util.AndroidStringResource
+import com.kmp.idea.domain.use_cases.ValidateResult
 import dev.icerock.moko.resources.StringResource
 
 @ExperimentalMaterial3Api
@@ -47,7 +48,7 @@ fun LandOutlinedTextField(
                     shape = RoundedCornerShape(50.dp)
                 )
                 .background(
-                    color = lightGrey,
+                    color = MaterialTheme.colorScheme.textFieldBackground,
                     shape = RoundedCornerShape(50.dp)
                 ),
             value = textValue.value,
@@ -63,7 +64,7 @@ fun LandOutlinedTextField(
             placeholder = {
                 Text(
                     label,
-                    color = navyBlue
+                    color = MaterialTheme.colorScheme.textFieldContent
                 )
             },
             textStyle = MaterialTheme.typography.labelSmall,
@@ -72,15 +73,15 @@ fun LandOutlinedTextField(
             colors = TextFieldDefaults.colors(
                 focusedLabelColor = Color.Transparent,
                 unfocusedLabelColor = Color.Transparent,
-                focusedTextColor = navyBlue,
-                unfocusedTextColor = navyBlue,
-                errorTextColor = navyBlue,
-                errorContainerColor = lightGrey,
-                focusedPlaceholderColor = navyBlue,
-                unfocusedPlaceholderColor = navyBlue,
-                focusedContainerColor = lightGrey,
-                unfocusedContainerColor = lightGrey,
-                disabledContainerColor = lightGrey
+                focusedTextColor = warningColor,
+                unfocusedTextColor = warningColor,
+                errorTextColor = errorColor,
+                errorContainerColor = errorColor,
+                focusedPlaceholderColor = warningColor,
+                unfocusedPlaceholderColor = warningColor,
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                disabledContainerColor = Color.DarkGray
             ),
             trailingIcon = {
                 if (isPassword) {
@@ -90,7 +91,7 @@ fun LandOutlinedTextField(
                         Icon(
                             painter = iconPassword,
                             contentDescription = "",
-                            tint = navyBlue
+                            tint = MaterialTheme.colorScheme.textFieldContent
                         )
                     }
                 }

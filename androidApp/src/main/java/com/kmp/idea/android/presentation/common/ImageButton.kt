@@ -22,6 +22,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.kmp.idea.android.ui.theme.buttonBackground
+import com.kmp.idea.android.ui.theme.buttonContent
 
 
 @Composable
@@ -30,7 +32,7 @@ fun ImageButton(eventClick: () -> Unit, content: String, iconContent: Int) {
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
         colors = ButtonDefaults.buttonColors(
-            containerColor = lightGrey
+            containerColor = MaterialTheme.colorScheme.buttonBackground
         )
     ) {
         Box(
@@ -39,7 +41,7 @@ fun ImageButton(eventClick: () -> Unit, content: String, iconContent: Int) {
                 .height(50.dp)
                 .shadow(3.dp, RoundedCornerShape(20.dp))
                 .background(
-                    color = lightGrey,
+                    color = MaterialTheme.colorScheme.buttonBackground,
                     shape = RoundedCornerShape(20.dp)
                 ),
             contentAlignment = Alignment.CenterStart
@@ -57,7 +59,7 @@ fun ImageButton(eventClick: () -> Unit, content: String, iconContent: Int) {
                     Icon(
                         painter = painterResource(id = iconContent),
                         contentDescription = "",
-                        tint = navyBlue
+                        tint = MaterialTheme.colorScheme.buttonContent
                     )
                 }
                 Spacer(modifier = Modifier.width(2.dp))
@@ -69,7 +71,7 @@ fun ImageButton(eventClick: () -> Unit, content: String, iconContent: Int) {
                 ) {
                     Text(
                         text = content,
-                        color = navyBlue,
+                        color = MaterialTheme.colorScheme.buttonContent,
                         style = MaterialTheme.typography.labelSmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis

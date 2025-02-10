@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.dardev.land.android.ui.theme.textColor
+import com.kmp.idea.android.ui.theme.textColor
+import com.kmp.idea.android.ui.theme.topBarBackground
 
 @Composable
 fun TopBar(
@@ -25,7 +26,7 @@ fun TopBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(106.dp)
-            .background(MaterialTheme.colorScheme.background),
+            .background(MaterialTheme.colorScheme.topBarBackground),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -33,36 +34,15 @@ fun TopBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 41.dp, bottom = 25.dp, end = 20.dp)
-                .align(Alignment.End),
+                .align(Alignment.CenterHorizontally),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.Top
         ) {
-            // Title
             Text(
-                text = "My Land",
+                text = "[Your App]",
                 color = MaterialTheme.colorScheme.textColor,
                 style = MaterialTheme.typography.titleLarge
             )
-            /*Spacer(modifier = Modifier.width(45.dp))
-            Icon Parameter et Notification
-            LandIconWithoutButton(
-                event = { navController.navigate(Screen.Parameter.route) },
-                content = if (isSystemInDarkTheme()) {
-                    com.dardev.land.R.drawable.gearicondark
-                } else {
-                    com.dardev.land.R.drawable.geariconlight
-                },
-                isActive = false
-            )
-            LandIconNotificationButton(
-                event = { navController.navigate(Screen.Notification.route) },
-                content = if (isSystemInDarkTheme()) {
-                    com.dardev.land.R.drawable.notificationicondark
-                } else {
-                    com.dardev.land.R.drawable.notificationiconlight
-                },
-                isActive = haveNotification.value
-            )*/
         }
     }
 }

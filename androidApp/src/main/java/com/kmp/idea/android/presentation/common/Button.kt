@@ -28,18 +28,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dardev.land.android.ui.theme.blueShade
-import com.dardev.land.android.ui.theme.buttonBackground
-import com.dardev.land.android.ui.theme.buttonContent
-import com.dardev.land.android.ui.theme.errorColor
-import com.dardev.land.android.ui.theme.lightGrey
-import com.dardev.land.android.ui.theme.navyBlue
-import com.dardev.land.android.ui.theme.poppins_Regular
-import com.dardev.land.android.ui.theme.textColor
+import com.kmp.idea.android.ui.theme.buttonBackground
+import com.kmp.idea.android.ui.theme.buttonContent
+import com.kmp.idea.android.ui.theme.errorColor
+import com.kmp.idea.android.ui.theme.textColor
+import com.kmp.idea.android.ui.theme.poppins_Regular
+import com.kmp.idea.android.ui.theme.lightForeground
+import com.kmp.idea.android.ui.theme.buttonBackground
+import com.kmp.idea.android.ui.theme.buttonContent
+import com.kmp.idea.android.ui.theme.lightBackground
 
 @Composable
-fun LandButton(eventClick: () -> Unit, content: String) {
-    val gradientColor = listOf(blueShade, navyBlue)
+fun Button(eventClick: () -> Unit, content: String) {
 
     Button(
         onClick = eventClick,
@@ -55,14 +55,14 @@ fun LandButton(eventClick: () -> Unit, content: String) {
                 .fillMaxWidth()
                 .shadow(3.dp, RoundedCornerShape(50.dp))
                 .background(
-                    brush = Brush.horizontalGradient(colors = gradientColor),
+                    color = MaterialTheme.colorScheme.buttonBackground,
                     shape = RoundedCornerShape(50.dp)
                 ),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = content,
-                color = lightGrey,
+                color = MaterialTheme.colorScheme.buttonContent,
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleMedium
             )
@@ -71,7 +71,7 @@ fun LandButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun LandGoogleButton(eventClick: () -> Unit, content: String) {
+fun GoogleButton(eventClick: () -> Unit, content: String) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
@@ -85,9 +85,9 @@ fun LandGoogleButton(eventClick: () -> Unit, content: String) {
                 .height(75.dp)
                 .fillMaxWidth()
                 .shadow(3.dp, RoundedCornerShape(50.dp))
-                .border(5.dp, blueShade, RoundedCornerShape(50.dp))
+                .border(5.dp, Color.Blue, RoundedCornerShape(50.dp))
                 .background(
-                    color = lightGrey,
+                    color = Color.White,
                     shape = RoundedCornerShape(50.dp)
                 ),
             contentAlignment = Alignment.Center
@@ -107,7 +107,7 @@ fun LandGoogleButton(eventClick: () -> Unit, content: String) {
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     text = content,
-                    color = navyBlue,
+                    color = Color.Black,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontFamily = poppins_Regular,
@@ -121,7 +121,7 @@ fun LandGoogleButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun LandTextIconButton(eventClick: () -> Unit, content: String, iconContent: Int) {
+fun TextIconButton(eventClick: () -> Unit, content: String, iconContent: Int) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
@@ -160,8 +160,8 @@ fun LandTextIconButton(eventClick: () -> Unit, content: String, iconContent: Int
 }
 
 @Composable
-fun LandRemoveAccountButton(eventClick: () -> Unit, content: String) {
-    val gradientColor = listOf(errorColor, navyBlue)
+fun RemoveAccountButton(eventClick: () -> Unit, content: String) {
+    val gradientColor = listOf(errorColor, lightForeground)
 
     Button(
         onClick = eventClick,
@@ -188,7 +188,7 @@ fun LandRemoveAccountButton(eventClick: () -> Unit, content: String) {
             ) {
                 Text(
                     text = content,
-                    color = lightGrey,
+                    color = lightForeground,
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.titleMedium
                 )
@@ -198,7 +198,7 @@ fun LandRemoveAccountButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun LandTextButton(eventClick: () -> Unit, content: String) {
+fun TextButton(eventClick: () -> Unit, content: String) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
@@ -212,7 +212,7 @@ fun LandTextButton(eventClick: () -> Unit, content: String) {
                 .height(48.dp)
                 .fillMaxWidth()
                 .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(MaterialTheme.colorScheme.background),
+                .background(MaterialTheme.colorScheme.primary),
             contentAlignment = Alignment.Center
         ) {
             Row(
@@ -231,7 +231,7 @@ fun LandTextButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun LandTextIconCancelRequestButton(eventClick: () -> Unit, content: String, iconContent: Int) {
+fun TextIconCancelRequestButton(eventClick: () -> Unit, content: String, iconContent: Int) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
@@ -254,7 +254,7 @@ fun LandTextIconCancelRequestButton(eventClick: () -> Unit, content: String, ico
             ) {
                 Text(
                     text = content,
-                    color = lightGrey,
+                    color = lightBackground,
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.labelMedium
                 )
@@ -262,7 +262,7 @@ fun LandTextIconCancelRequestButton(eventClick: () -> Unit, content: String, ico
                 Icon(
                     painter = painterResource(id = iconContent),
                     contentDescription = "",
-                    tint = lightGrey
+                    tint = lightBackground
                 )
             }
         }
@@ -270,8 +270,8 @@ fun LandTextIconCancelRequestButton(eventClick: () -> Unit, content: String, ico
 }
 
 @Composable
-fun LandRemoveAccountValidateButton(eventClick: () -> Unit, content: String) {
-    val gradientColor = listOf(errorColor, navyBlue)
+fun RemoveAccountValidateButton(eventClick: () -> Unit, content: String) {
+    val gradientColor = listOf(errorColor, lightForeground)
 
     Button(
         onClick = eventClick,
@@ -294,73 +294,7 @@ fun LandRemoveAccountValidateButton(eventClick: () -> Unit, content: String) {
         ) {
             Text(
                 text = content,
-                color = lightGrey,
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium
-            )
-        }
-    }
-}
-
-@Composable
-fun LandNotificationValidateButton(eventClick: () -> Unit, content: String) {
-    val gradientColor = listOf(blueShade, navyBlue)
-
-    Button(
-        onClick = eventClick,
-        contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
-    ) {
-        Box(
-            modifier = Modifier
-                .width(160.dp)
-                .height(40.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(
-                    brush = Brush.horizontalGradient(colors = gradientColor),
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = content,
-                color = lightGrey,
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium
-            )
-        }
-    }
-}
-
-@Composable
-fun LandNotificationRefuseButton(eventClick: () -> Unit, content: String) {
-    val gradientColor = listOf(blueShade, navyBlue)
-
-    Button(
-        onClick = eventClick,
-        contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
-    ) {
-        Box(
-            modifier = Modifier
-                .width(160.dp)
-                .height(40.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(
-                    color = lightGrey,
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = content,
-                color = navyBlue,
+                color = lightBackground,
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleMedium
             )

@@ -16,13 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.dardev.land.SharedRes
-import com.dardev.land.android.R
-import com.dardev.land.android.ui.theme.buttonFeedbackBackground
-import com.dardev.land.android.ui.theme.feedbackBoxBackground
-import com.dardev.land.android.ui.theme.feedbackTextForground
-import com.dardev.land.android.ui.theme.navyBlue
-import com.dardev.land.android.util.AndroidStringResource
+import com.kmp.idea.SharedRes
+import com.kmp.idea.android.R
+import com.kmp.idea.android.ui.theme.buttonFeedbackBackground
+import com.kmp.idea.android.ui.theme.feedbackBoxBackground
+import com.kmp.idea.android.ui.theme.feedbackTextForeground
+import com.kmp.idea.android.ui.theme.lightBackground
 import com.kmp.idea.android.util.AndroidStringResource
 
 @Composable
@@ -38,7 +37,7 @@ fun FeedbackCard(onFeedbackClick: () -> Unit) {
             )
             .border(
                 width = 1.dp,
-                color = MaterialTheme.colorScheme.feedbackTextForground,
+                color = MaterialTheme.colorScheme.feedbackTextForeground,
                 shape = RoundedCornerShape(12.dp)
             ),
         contentAlignment = Alignment.Center
@@ -62,14 +61,14 @@ fun FeedbackCard(onFeedbackClick: () -> Unit) {
             Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = AndroidStringResource(id = SharedRes.strings.survey_feedback_title),
-                color = MaterialTheme.colorScheme.feedbackTextForground,
+                color = MaterialTheme.colorScheme.feedbackTextForeground,
                 style = MaterialTheme.typography.titleMedium,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = AndroidStringResource(id = SharedRes.strings.survey_feedback_message),
-                color = MaterialTheme.colorScheme.feedbackTextForground,
+                color = MaterialTheme.colorScheme.feedbackTextForeground,
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center
             )
@@ -83,7 +82,7 @@ fun FeedbackCard(onFeedbackClick: () -> Unit) {
             ) {
                 Text(
                     text = AndroidStringResource(id = SharedRes.strings.survey_feedback_action),
-                    color = navyBlue,
+                    color = lightBackground,
                     textAlign = TextAlign.Center
                 )
             }
