@@ -6,6 +6,9 @@ import com.kmp.idea.core.presentation.MokoStringsResources
 import dev.icerock.moko.resources.StringResource
 
 @Composable
-fun AndroidStringResource(id: StringResource, vararg args: Any): String {
+fun AndroidStringResource(
+    id: StringResource,
+    vararg args: Any,
+): String {
     return MokoStringsResources(LocalContext.current).get(id, args.toList())
 }

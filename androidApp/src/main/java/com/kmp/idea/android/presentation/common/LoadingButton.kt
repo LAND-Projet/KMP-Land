@@ -24,7 +24,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.kmp.idea.android.R
@@ -38,35 +37,37 @@ fun LoadingButton() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .width(322.dp)
-            .height(75.dp)
-            .fillMaxWidth()
-            .shadow(3.dp, RoundedCornerShape(50.dp))
-            .background(
-                color = MaterialTheme.colorScheme.buttonBackground,
-                shape = RoundedCornerShape(50.dp)
-            )
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .width(322.dp)
+                .height(75.dp)
+                .fillMaxWidth()
+                .shadow(3.dp, RoundedCornerShape(50.dp))
+                .background(
+                    color = MaterialTheme.colorScheme.buttonBackground,
+                    shape = RoundedCornerShape(50.dp),
+                )
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
-            modifier = Modifier.rotate(rotation)
+            modifier = Modifier.rotate(rotation),
         )
     }
 }
@@ -77,35 +78,37 @@ fun LoadingNotificationButton() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .width(160.dp)
-            .height(40.dp)
-            .fillMaxWidth()
-            .shadow(3.dp, RoundedCornerShape(50.dp))
-            .background(
-                color = MaterialTheme.colorScheme.buttonBackground,
-                shape = RoundedCornerShape(50.dp)
-            )
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .width(160.dp)
+                .height(40.dp)
+                .fillMaxWidth()
+                .shadow(3.dp, RoundedCornerShape(50.dp))
+                .background(
+                    color = MaterialTheme.colorScheme.buttonBackground,
+                    shape = RoundedCornerShape(50.dp),
+                )
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
-            modifier = Modifier.rotate(rotation)
+            modifier = Modifier.rotate(rotation),
         )
     }
 }
@@ -116,36 +119,38 @@ fun LoadingNotificationRefuseButton() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .width(160.dp)
-            .height(40.dp)
-            .fillMaxWidth()
-            .shadow(3.dp, RoundedCornerShape(50.dp))
-            .background(
-                color = errorColor,
-                shape = RoundedCornerShape(50.dp)
-            )
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .width(160.dp)
+                .height(40.dp)
+                .fillMaxWidth()
+                .shadow(3.dp, RoundedCornerShape(50.dp))
+                .background(
+                    color = errorColor,
+                    shape = RoundedCornerShape(50.dp),
+                )
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
             modifier = Modifier.rotate(rotation),
-            tint = lightForeground
+            tint = lightForeground,
         )
     }
 }
@@ -156,35 +161,37 @@ fun LoadingParameterButton() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .width(160.dp)
-            .height(40.dp)
-            .fillMaxWidth()
-            .shadow(3.dp, RoundedCornerShape(50.dp))
-            .background(
-                color = MaterialTheme.colorScheme.buttonBackground,
-                shape = RoundedCornerShape(50.dp)
-            )
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .width(160.dp)
+                .height(40.dp)
+                .fillMaxWidth()
+                .shadow(3.dp, RoundedCornerShape(50.dp))
+                .background(
+                    color = MaterialTheme.colorScheme.buttonBackground,
+                    shape = RoundedCornerShape(50.dp),
+                )
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
-            modifier = Modifier.rotate(rotation)
+            modifier = Modifier.rotate(rotation),
         )
     }
 }
@@ -195,17 +202,18 @@ fun LoadingParameterIcon() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Icon(
         painter = painterResource(id = R.drawable.ic_refresh),
         contentDescription = "Chargement",
-        modifier = Modifier.rotate(rotation)
+        modifier = Modifier.rotate(rotation),
     )
 }
 
@@ -215,29 +223,31 @@ fun LoadingIcon() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .height(100.dp)
-            .fillMaxWidth()
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .height(100.dp)
+                .fillMaxWidth()
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
-            modifier = Modifier.rotate(rotation)
+            modifier = Modifier.rotate(rotation),
         )
     }
 }
@@ -248,28 +258,30 @@ fun LoadingIconScreen() {
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(1000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "",
     )
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .clickable(
-                onClick = { },
-                enabled = false,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .clickable(
+                    onClick = { },
+                    enabled = false,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_refresh),
             contentDescription = "Chargement",
-            modifier = Modifier.rotate(rotation)
+            modifier = Modifier.rotate(rotation),
         )
     }
 }

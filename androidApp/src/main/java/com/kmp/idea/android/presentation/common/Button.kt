@@ -31,78 +31,87 @@ import androidx.compose.ui.unit.sp
 import com.kmp.idea.android.ui.theme.buttonBackground
 import com.kmp.idea.android.ui.theme.buttonContent
 import com.kmp.idea.android.ui.theme.errorColor
-import com.kmp.idea.android.ui.theme.textColor
-import com.kmp.idea.android.ui.theme.poppins_Regular
-import com.kmp.idea.android.ui.theme.lightForeground
-import com.kmp.idea.android.ui.theme.buttonBackground
-import com.kmp.idea.android.ui.theme.buttonContent
 import com.kmp.idea.android.ui.theme.lightBackground
+import com.kmp.idea.android.ui.theme.lightForeground
+import com.kmp.idea.android.ui.theme.poppins_Regular
+import com.kmp.idea.android.ui.theme.textColor
 
 @Composable
-fun Button(eventClick: () -> Unit, content: String) {
-
+fun Button(
+    eventClick: () -> Unit,
+    content: String,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(322.dp)
-                .height(75.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(
-                    color = MaterialTheme.colorScheme.buttonBackground,
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(322.dp)
+                    .height(75.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(
+                        color = MaterialTheme.colorScheme.buttonBackground,
+                        shape = RoundedCornerShape(50.dp),
+                    ),
+            contentAlignment = Alignment.Center,
         ) {
             Text(
                 text = content,
                 color = MaterialTheme.colorScheme.buttonContent,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
             )
         }
     }
 }
 
 @Composable
-fun GoogleButton(eventClick: () -> Unit, content: String) {
+fun GoogleButton(
+    eventClick: () -> Unit,
+    content: String,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(322.dp)
-                .height(75.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .border(5.dp, Color.Blue, RoundedCornerShape(50.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(322.dp)
+                    .height(75.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .border(5.dp, Color.Blue, RoundedCornerShape(50.dp))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(50.dp),
+                    ),
+            contentAlignment = Alignment.Center,
         ) {
             Row(
-                modifier = Modifier
-                    .padding(start = 10.dp, end = 10.dp, top = 20.dp, bottom = 20.dp)
-                    .align(Alignment.Center)
+                modifier =
+                    Modifier
+                        .padding(start = 10.dp, end = 10.dp, top = 20.dp, bottom = 20.dp)
+                        .align(Alignment.Center),
             ) {
                 Image(
                     painter = painterResource(id = com.dardev.land.R.drawable.googlelogo),
                     contentDescription = "googleLogo",
-                    modifier = Modifier
-                        .width(30.dp)
-                        .height(30.dp)
+                    modifier =
+                        Modifier
+                            .width(30.dp)
+                            .height(30.dp),
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
@@ -112,8 +121,9 @@ fun GoogleButton(eventClick: () -> Unit, content: String) {
                     fontWeight = FontWeight.Bold,
                     fontFamily = poppins_Regular,
                     fontSize = 15.sp,
-                    modifier = Modifier
-                        .padding(top = 5.dp)
+                    modifier =
+                        Modifier
+                            .padding(top = 5.dp),
                 )
             }
         }
@@ -121,38 +131,44 @@ fun GoogleButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun TextIconButton(eventClick: () -> Unit, content: String, iconContent: Int) {
+fun TextIconButton(
+    eventClick: () -> Unit,
+    content: String,
+    iconContent: Int,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(149.dp)
-                .height(48.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(MaterialTheme.colorScheme.buttonBackground),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(149.dp)
+                    .height(48.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(MaterialTheme.colorScheme.buttonBackground),
+            contentAlignment = Alignment.Center,
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon(
                     painter = painterResource(id = iconContent),
                     contentDescription = "",
-                    tint = MaterialTheme.colorScheme.buttonContent
+                    tint = MaterialTheme.colorScheme.buttonContent,
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     text = content,
                     color = MaterialTheme.colorScheme.buttonContent,
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
             }
         }
@@ -160,37 +176,42 @@ fun TextIconButton(eventClick: () -> Unit, content: String, iconContent: Int) {
 }
 
 @Composable
-fun RemoveAccountButton(eventClick: () -> Unit, content: String) {
+fun RemoveAccountButton(
+    eventClick: () -> Unit,
+    content: String,
+) {
     val gradientColor = listOf(errorColor, lightForeground)
 
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(322.dp)
-                .height(75.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(
-                    brush = Brush.horizontalGradient(colors = gradientColor),
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(322.dp)
+                    .height(75.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(
+                        brush = Brush.horizontalGradient(colors = gradientColor),
+                        shape = RoundedCornerShape(50.dp),
+                    ),
+            contentAlignment = Alignment.Center,
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = content,
                     color = lightForeground,
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
             }
         }
@@ -198,32 +219,37 @@ fun RemoveAccountButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun TextButton(eventClick: () -> Unit, content: String) {
+fun TextButton(
+    eventClick: () -> Unit,
+    content: String,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(149.dp)
-                .height(48.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(MaterialTheme.colorScheme.primary),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(149.dp)
+                    .height(48.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(MaterialTheme.colorScheme.primary),
+            contentAlignment = Alignment.Center,
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = content,
                     color = MaterialTheme.colorScheme.textColor,
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
             }
         }
@@ -231,38 +257,44 @@ fun TextButton(eventClick: () -> Unit, content: String) {
 }
 
 @Composable
-fun TextIconCancelRequestButton(eventClick: () -> Unit, content: String, iconContent: Int) {
+fun TextIconCancelRequestButton(
+    eventClick: () -> Unit,
+    content: String,
+    iconContent: Int,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(149.dp)
-                .height(48.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(errorColor),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(149.dp)
+                    .height(48.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(errorColor),
+            contentAlignment = Alignment.Center,
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = content,
                     color = lightBackground,
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelMedium
+                    style = MaterialTheme.typography.labelMedium,
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Icon(
                     painter = painterResource(id = iconContent),
                     contentDescription = "",
-                    tint = lightBackground
+                    tint = lightBackground,
                 )
             }
         }
@@ -270,33 +302,38 @@ fun TextIconCancelRequestButton(eventClick: () -> Unit, content: String, iconCon
 }
 
 @Composable
-fun RemoveAccountValidateButton(eventClick: () -> Unit, content: String) {
+fun RemoveAccountValidateButton(
+    eventClick: () -> Unit,
+    content: String,
+) {
     val gradientColor = listOf(errorColor, lightForeground)
 
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(155.dp)
-                .height(40.dp)
-                .fillMaxWidth()
-                .shadow(3.dp, RoundedCornerShape(50.dp))
-                .background(
-                    brush = Brush.horizontalGradient(colors = gradientColor),
-                    shape = RoundedCornerShape(50.dp)
-                ),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .width(155.dp)
+                    .height(40.dp)
+                    .fillMaxWidth()
+                    .shadow(3.dp, RoundedCornerShape(50.dp))
+                    .background(
+                        brush = Brush.horizontalGradient(colors = gradientColor),
+                        shape = RoundedCornerShape(50.dp),
+                    ),
+            contentAlignment = Alignment.Center,
         ) {
             Text(
                 text = content,
                 color = lightBackground,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
             )
         }
     }

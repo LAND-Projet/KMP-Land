@@ -19,34 +19,36 @@ import com.kmp.idea.android.ui.theme.topBarBackground
 fun RoundedTopBar(
     modifier: Modifier = Modifier,
     navController: NavController,
-    haveNotification: MutableState<Boolean>
+    haveNotification: MutableState<Boolean>,
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(106.dp)
-            .clip(
-                RoundedCornerShape(
-                    bottomStart = 50.dp,
-                    bottomEnd = 50.dp
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(106.dp)
+                .clip(
+                    RoundedCornerShape(
+                        bottomStart = 50.dp,
+                        bottomEnd = 50.dp,
+                    ),
                 )
-            )
-            .background(MaterialTheme.colorScheme.topBarBackground),
+                .background(MaterialTheme.colorScheme.topBarBackground),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 41.dp, bottom = 25.dp, end = 20.dp)
-                .align(Alignment.CenterHorizontally),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 41.dp, bottom = 25.dp, end = 20.dp)
+                    .align(Alignment.CenterHorizontally),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Top
+            verticalAlignment = Alignment.Top,
         ) {
             Text(
                 text = "[Your App]",
                 color = MaterialTheme.colorScheme.textColor,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleLarge,
             )
         }
     }

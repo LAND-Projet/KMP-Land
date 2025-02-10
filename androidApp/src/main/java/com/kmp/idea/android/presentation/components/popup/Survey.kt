@@ -27,63 +27,67 @@ import com.kmp.idea.android.util.AndroidStringResource
 @Composable
 fun FeedbackCard(onFeedbackClick: () -> Unit) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
-            .padding(20.dp)
-            .background(
-                color = MaterialTheme.colorScheme.feedbackBoxBackground,
-                shape = RoundedCornerShape(12.dp)
-            )
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.feedbackTextForeground,
-                shape = RoundedCornerShape(12.dp)
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(20.dp)
+                .background(
+                    color = MaterialTheme.colorScheme.feedbackBoxBackground,
+                    shape = RoundedCornerShape(12.dp),
+                )
+                .border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.feedbackTextForeground,
+                    shape = RoundedCornerShape(12.dp),
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp),
         ) {
             Image(
-                painter = painterResource(
-                    id = if (isSystemInDarkTheme()) {
-                        com.dardev.land.R.drawable.pinwhite
-                    } else {
-                        com.dardev.land.R.drawable.pinlocation
-                    }
-                ),
+                painter =
+                    painterResource(
+                        id =
+                            if (isSystemInDarkTheme()) {
+                                com.dardev.land.R.drawable.pinwhite
+                            } else {
+                                com.dardev.land.R.drawable.pinlocation
+                            },
+                    ),
                 contentDescription = "Pin Icon",
-                modifier = Modifier.size(48.dp)
+                modifier = Modifier.size(48.dp),
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = AndroidStringResource(id = SharedRes.strings.survey_feedback_title),
                 color = MaterialTheme.colorScheme.feedbackTextForeground,
                 style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = AndroidStringResource(id = SharedRes.strings.survey_feedback_message),
                 color = MaterialTheme.colorScheme.feedbackTextForeground,
                 style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = onFeedbackClick,
                 modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.buttonFeedbackBackground
-                )
+                colors =
+                    ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.buttonFeedbackBackground,
+                    ),
             ) {
                 Text(
                     text = AndroidStringResource(id = SharedRes.strings.survey_feedback_action),
                     color = lightBackground,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }

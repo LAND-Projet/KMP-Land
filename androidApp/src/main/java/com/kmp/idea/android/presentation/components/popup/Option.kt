@@ -1,6 +1,5 @@
 package com.kmp.idea.android.presentation.components.popup
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,44 +28,47 @@ fun OptionDialog(
     showDialog: Boolean,
     onDismiss: () -> Unit,
     onButton1Click: () -> Unit,
-    onButton2Click: () -> Unit
+    onButton2Click: () -> Unit,
 ) {
     if (showDialog) {
         Dialog(
-            onDismissRequest = onDismiss
+            onDismissRequest = onDismiss,
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(
-                        color = MaterialTheme.colorScheme.popUpBackground,
-                        shape = RoundedCornerShape(20.dp)
-                    )
-                    .padding(16.dp)
-                    .verticalScroll(rememberScrollState()),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .background(
+                            color = MaterialTheme.colorScheme.popUpBackground,
+                            shape = RoundedCornerShape(20.dp),
+                        )
+                        .padding(16.dp)
+                        .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
             ) {
                 Text(
                     text = AndroidStringResource(id = SharedRes.strings.select_picture_text_label),
                     color = MaterialTheme.colorScheme.popUpContent,
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(modifier = Modifier.height(30.dp))
                 ImageButton(
                     eventClick = onButton1Click,
-                    content = AndroidStringResource(
-                        id = SharedRes.strings.take_picture_text_button
-                    ),
-                    iconContent = com.dardev.land.R.drawable.cameralight
+                    content =
+                        AndroidStringResource(
+                            id = SharedRes.strings.take_picture_text_button,
+                        ),
+                    iconContent = com.dardev.land.R.drawable.cameralight,
                 )
                 Spacer(modifier = Modifier.height(20.dp))
                 ImageButton(
                     eventClick = onButton2Click,
-                    content = AndroidStringResource(
-                        id = SharedRes.strings.take_image_from_storage_text_button
-                    ),
-                    iconContent = com.dardev.land.R.drawable.uploadicon
+                    content =
+                        AndroidStringResource(
+                            id = SharedRes.strings.take_image_from_storage_text_button,
+                        ),
+                    iconContent = com.dardev.land.R.drawable.uploadicon,
                 )
             }
         }

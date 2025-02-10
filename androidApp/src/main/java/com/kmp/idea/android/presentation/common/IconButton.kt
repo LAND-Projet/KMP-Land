@@ -20,65 +20,79 @@ import androidx.compose.ui.unit.dp
 import com.kmp.idea.android.ui.theme.errorColor
 import com.kmp.idea.android.ui.theme.iconbuttonBackground
 import com.kmp.idea.android.ui.theme.iconbuttonContent
-import com.kmp.idea.android.ui.theme.successColor
 import com.kmp.idea.android.ui.theme.infoColor
 import com.kmp.idea.android.ui.theme.lightBackground
+import com.kmp.idea.android.ui.theme.successColor
 
 @Composable
-fun IconButton(event: () -> Unit, content: Int, modifier: Modifier = Modifier) {
+fun IconButton(
+    event: () -> Unit,
+    content: Int,
+    modifier: Modifier = Modifier,
+) {
     Card(
-        modifier = Modifier
-            .width(35.dp)
-            .height(35.dp),
+        modifier =
+            Modifier
+                .width(35.dp)
+                .height(35.dp),
         shape = RoundedCornerShape(10),
-        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.iconbuttonBackground)
+        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.iconbuttonBackground),
     ) {
         IconButton(onClick = event) {
             Icon(
                 painter = painterResource(id = content),
                 contentDescription = "",
-                tint = MaterialTheme.colorScheme.iconbuttonContent
+                tint = MaterialTheme.colorScheme.iconbuttonContent,
             )
         }
     }
 }
 
 @Composable
-fun IconWithoutButton(event: () -> Unit, content: Int, isActive: Boolean) {
+fun IconWithoutButton(
+    event: () -> Unit,
+    content: Int,
+    isActive: Boolean,
+) {
     if (isActive) {
         IconButton(onClick = event) {
             Icon(
                 painter = painterResource(id = content),
                 contentDescription = "",
-                tint = successColor
+                tint = successColor,
             )
         }
     } else {
         IconButton(onClick = event) {
             Icon(
                 painter = painterResource(id = content),
-                contentDescription = ""
+                contentDescription = "",
             )
         }
     }
 }
 
 @Composable
-fun IconNotificationButton(event: () -> Unit, content: Int, isActive: Boolean) {
+fun IconNotificationButton(
+    event: () -> Unit,
+    content: Int,
+    isActive: Boolean,
+) {
     IconButton(onClick = event) {
         Box(
-            contentAlignment = Alignment.TopEnd
+            contentAlignment = Alignment.TopEnd,
         ) {
             Icon(
                 painter = painterResource(id = content),
-                contentDescription = ""
+                contentDescription = "",
             )
             if (isActive) {
                 Box(
-                    modifier = Modifier
-                        .size(8.dp)
-                        .background(errorColor, CircleShape)
-                        .align(Alignment.TopEnd)
+                    modifier =
+                        Modifier
+                            .size(8.dp)
+                            .background(errorColor, CircleShape)
+                            .align(Alignment.TopEnd),
                 )
             }
         }
@@ -86,20 +100,25 @@ fun IconNotificationButton(event: () -> Unit, content: Int, isActive: Boolean) {
 }
 
 @Composable
-fun NavigationIconButton(event: () -> Unit, content: Int, isActive: Boolean) {
+fun NavigationIconButton(
+    event: () -> Unit,
+    content: Int,
+    isActive: Boolean,
+) {
     if (isActive) {
         Card(
-            modifier = Modifier
-                .width(38.dp)
-                .height(39.dp),
+            modifier =
+                Modifier
+                    .width(38.dp)
+                    .height(39.dp),
             shape = RoundedCornerShape(15.dp),
-            colors = CardDefaults.cardColors(infoColor)
+            colors = CardDefaults.cardColors(infoColor),
         ) {
             IconButton(onClick = event) {
                 Icon(
                     painter = painterResource(id = content),
                     contentDescription = "",
-                    tint = lightBackground
+                    tint = lightBackground,
                 )
             }
         }
@@ -107,7 +126,7 @@ fun NavigationIconButton(event: () -> Unit, content: Int, isActive: Boolean) {
         IconButton(onClick = event) {
             Icon(
                 painter = painterResource(id = content),
-                contentDescription = ""
+                contentDescription = "",
             )
         }
     }

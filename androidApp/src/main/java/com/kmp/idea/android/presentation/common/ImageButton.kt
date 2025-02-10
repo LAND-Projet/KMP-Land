@@ -25,56 +25,63 @@ import androidx.compose.ui.unit.dp
 import com.kmp.idea.android.ui.theme.buttonBackground
 import com.kmp.idea.android.ui.theme.buttonContent
 
-
 @Composable
-fun ImageButton(eventClick: () -> Unit, content: String, iconContent: Int) {
+fun ImageButton(
+    eventClick: () -> Unit,
+    content: String,
+    iconContent: Int,
+) {
     Button(
         onClick = eventClick,
         contentPadding = ButtonDefaults.TextButtonContentPadding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.buttonBackground
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.buttonBackground,
+            ),
     ) {
         Box(
-            modifier = Modifier
-                .width(262.dp)
-                .height(50.dp)
-                .shadow(3.dp, RoundedCornerShape(20.dp))
-                .background(
-                    color = MaterialTheme.colorScheme.buttonBackground,
-                    shape = RoundedCornerShape(20.dp)
-                ),
-            contentAlignment = Alignment.CenterStart
+            modifier =
+                Modifier
+                    .width(262.dp)
+                    .height(50.dp)
+                    .shadow(3.dp, RoundedCornerShape(20.dp))
+                    .background(
+                        color = MaterialTheme.colorScheme.buttonBackground,
+                        shape = RoundedCornerShape(20.dp),
+                    ),
+            contentAlignment = Alignment.CenterStart,
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start
+                horizontalArrangement = Arrangement.Start,
             ) {
                 Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight(),
-                    contentAlignment = Alignment.Center
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .fillMaxHeight(),
+                    contentAlignment = Alignment.Center,
                 ) {
                     Icon(
                         painter = painterResource(id = iconContent),
                         contentDescription = "",
-                        tint = MaterialTheme.colorScheme.buttonContent
+                        tint = MaterialTheme.colorScheme.buttonContent,
                     )
                 }
                 Spacer(modifier = Modifier.width(2.dp))
                 Box(
-                    modifier = Modifier
-                        .weight(4f)
-                        .fillMaxHeight(),
-                    contentAlignment = Alignment.CenterStart
+                    modifier =
+                        Modifier
+                            .weight(4f)
+                            .fillMaxHeight(),
+                    contentAlignment = Alignment.CenterStart,
                 ) {
                     Text(
                         text = content,
                         color = MaterialTheme.colorScheme.buttonContent,
                         style = MaterialTheme.typography.labelSmall,
                         maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }

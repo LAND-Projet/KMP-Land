@@ -5,10 +5,12 @@ import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
 
 class AnalyticsHelper(private val context: Context) {
-
     private val firebaseAnalytics = FirebaseAnalytics.getInstance(context)
 
-    fun logEvent(eventName: String, params: Bundle? = null) {
+    fun logEvent(
+        eventName: String,
+        params: Bundle? = null,
+    ) {
         firebaseAnalytics.logEvent(eventName, params)
     }
 
@@ -16,7 +18,10 @@ class AnalyticsHelper(private val context: Context) {
         firebaseAnalytics.setUserId(userId)
     }
 
-    fun setUserProperty(value: String?, property: String) {
+    fun setUserProperty(
+        value: String?,
+        property: String,
+    ) {
         firebaseAnalytics.setUserProperty(property, value)
     }
 }

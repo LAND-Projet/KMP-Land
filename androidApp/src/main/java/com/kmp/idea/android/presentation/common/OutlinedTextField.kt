@@ -35,22 +35,23 @@ fun LandOutlinedTextField(
     isPassword: Boolean = false,
     visibilityPassword: MutableState<Boolean> = mutableStateOf(false),
     iconPassword: Painter = painterResource(id = R.drawable.ic_home),
-    eventChange: () -> ValidateResult
+    eventChange: () -> ValidateResult,
 ) {
     var errorMessage = remember { mutableStateOf<StringResource?>(null) }
     Column {
         TextField(
-            modifier = Modifier
-                .width(322.dp)
-                .height(75.dp)
-                .shadow(
-                    elevation = 2.dp,
-                    shape = RoundedCornerShape(50.dp)
-                )
-                .background(
-                    color = MaterialTheme.colorScheme.textFieldBackground,
-                    shape = RoundedCornerShape(50.dp)
-                ),
+            modifier =
+                Modifier
+                    .width(322.dp)
+                    .height(75.dp)
+                    .shadow(
+                        elevation = 2.dp,
+                        shape = RoundedCornerShape(50.dp),
+                    )
+                    .background(
+                        color = MaterialTheme.colorScheme.textFieldBackground,
+                        shape = RoundedCornerShape(50.dp),
+                    ),
             value = textValue.value,
             onValueChange = {
                 textValue.value = it
@@ -64,25 +65,26 @@ fun LandOutlinedTextField(
             placeholder = {
                 Text(
                     label,
-                    color = MaterialTheme.colorScheme.textFieldContent
+                    color = MaterialTheme.colorScheme.textFieldContent,
                 )
             },
             textStyle = MaterialTheme.typography.labelSmall,
             isError = errorMessage.value != null,
             singleLine = true,
-            colors = TextFieldDefaults.colors(
-                focusedLabelColor = Color.Transparent,
-                unfocusedLabelColor = Color.Transparent,
-                focusedTextColor = warningColor,
-                unfocusedTextColor = warningColor,
-                errorTextColor = errorColor,
-                errorContainerColor = errorColor,
-                focusedPlaceholderColor = warningColor,
-                unfocusedPlaceholderColor = warningColor,
-                focusedContainerColor = Color.Transparent,
-                unfocusedContainerColor = Color.Transparent,
-                disabledContainerColor = Color.DarkGray
-            ),
+            colors =
+                TextFieldDefaults.colors(
+                    focusedLabelColor = Color.Transparent,
+                    unfocusedLabelColor = Color.Transparent,
+                    focusedTextColor = warningColor,
+                    unfocusedTextColor = warningColor,
+                    errorTextColor = errorColor,
+                    errorContainerColor = errorColor,
+                    focusedPlaceholderColor = warningColor,
+                    unfocusedPlaceholderColor = warningColor,
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent,
+                    disabledContainerColor = Color.DarkGray,
+                ),
             trailingIcon = {
                 if (isPassword) {
                     IconButton(onClick = {
@@ -91,27 +93,28 @@ fun LandOutlinedTextField(
                         Icon(
                             painter = iconPassword,
                             contentDescription = "",
-                            tint = MaterialTheme.colorScheme.textFieldContent
+                            tint = MaterialTheme.colorScheme.textFieldContent,
                         )
                     }
                 }
             },
-            visualTransformation = if (isPassword) {
-                if (visibilityPassword.value) {
-                    VisualTransformation.None
+            visualTransformation =
+                if (isPassword) {
+                    if (visibilityPassword.value) {
+                        VisualTransformation.None
+                    } else {
+                        PasswordVisualTransformation()
+                    }
                 } else {
-                    PasswordVisualTransformation()
-                }
-            } else {
-                VisualTransformation.None
-            }
+                    VisualTransformation.None
+                },
         )
         if (errorMessage.value != null) {
             Text(
                 text = AndroidStringResource(errorMessage.value!!),
                 color = errorColor,
                 style = MaterialTheme.typography.labelMedium,
-                modifier = Modifier.width(300.dp)
+                modifier = Modifier.width(300.dp),
             )
         }
     }
