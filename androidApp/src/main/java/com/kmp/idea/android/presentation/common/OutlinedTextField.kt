@@ -29,7 +29,7 @@ import dev.icerock.moko.resources.StringResource
 
 @ExperimentalMaterial3Api
 @Composable
-fun LandOutlinedTextField(
+fun OutlinedTextField(
     textValue: MutableState<String>,
     label: String,
     isPassword: Boolean = false,
