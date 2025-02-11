@@ -5,7 +5,7 @@ stately = "2.0.5"
 sweet-toast = "1.0.1"
 rx-permission = "0.10.0"
 geohash = "1.0"
-introshowcaseview = "2.0.1"
+introshowcaseview = "2.0.2"
 twyper = "0.0.4"
 
 [libraries]

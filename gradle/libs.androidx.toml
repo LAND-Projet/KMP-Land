@@ -1,8 +1,8 @@
 [versions]
-coreKtx = "1.13.1"
+coreKtx = "1.15.0"
 appCompat = "1.7.0"
-compose = "1.6.8"
-worker = "2.9.1"
+compose = "1.7.7"
+worker = "2.10.0"
 
 [libraries]
 coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }

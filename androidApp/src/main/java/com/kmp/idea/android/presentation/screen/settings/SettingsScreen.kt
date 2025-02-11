@@ -14,23 +14,26 @@ fun SettingsScreen(
     navController: NavController,
     context: Context,
 ) {
-
-    val options = BitmapFactory.Options().apply {
-        inSampleSize = 2
-    }
-    val bitmap = BitmapFactory.decodeResource(
-        context.resources,
-        com.dardev.land.R.drawable.reliefbleu,
-        options
-    )
+    val options =
+        BitmapFactory.Options().apply {
+            inSampleSize = 2
+        }
+    val bitmap =
+        BitmapFactory.decodeResource(
+            context.resources,
+            com.dardev.land.R.drawable.reliefbleu,
+            options,
+        )
     val imageBitmap = bitmap.asImageBitmap()
     val coroutineScope = rememberCoroutineScope()
-    val userId = remember {
-        mutableStateOf("")
-    }
-    val removeAccountSuccess = remember {
-        mutableStateOf(false)
-    }
+    val userId =
+        remember {
+            mutableStateOf("")
+        }
+    val removeAccountSuccess =
+        remember {
+            mutableStateOf(false)
+        }
 
     LaunchedEffect(key1 = userId) {
         userId.value = viewModel.getUserID()
@@ -39,26 +42,28 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             LandParameterTopBar(navController = navController, userId = userId.value)
-        }
+        },
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
         ) {
             // Image de fond
             Image(
                 bitmap = imageBitmap,
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxHeight().alpha(0.5f)
+                modifier = Modifier.fillMaxHeight().alpha(0.5f),
             )
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
-                    .padding(top = 30.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(top = 30.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 LandParameterInfoSection(
                     usernameEventClick = { it, result, callback ->
@@ -77,7 +82,7 @@ fun SettingsScreen(
                             viewModel.applyNewProfilPicture(it, result, callback)
                         }
                     },
-                    context = context
+                    context = context,
                 )
                 LandParameterPrivateInfoSection(
                     navController = navController,
@@ -111,7 +116,7 @@ fun SettingsScreen(
                             removeAccountSuccess.value = viewModel.removeAccount()
                         }
                     },
-                    removeAccountSuccess = removeAccountSuccess
+                    removeAccountSuccess = removeAccountSuccess,
                 )
             }
         }

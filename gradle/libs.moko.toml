@@ -9,4 +9,4 @@ mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graph
 mokoCompose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko" }
 
 [plugins]
-mokoResources = { id = "dev.icerock.mobile.multiplatform-resources" }
+mokoResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }

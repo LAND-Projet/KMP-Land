@@ -1,9 +1,9 @@
 [versions]
 review = "2.0.2"
-map = "2.7.2"
+map = "6.4.4"
 play-service = "19.0.0"
 google-places = "4.1.0"
-guava = "32.0.1-jre"
+guava = "33.4.0-jre"
 ads = "23.6.0"
 auth = "21.3.0"
 

@@ -1,5 +1,5 @@
 [versions]
-cameraX = "1.3.4"
+cameraX = "1.4.1"
 exifInterface = "1.3.7"
 
 [libraries]

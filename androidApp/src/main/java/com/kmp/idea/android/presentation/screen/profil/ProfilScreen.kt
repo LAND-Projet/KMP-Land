@@ -15,57 +15,69 @@ fun ProfilScreen(
     context: Context,
 ) {
     val uriHandler = LocalUriHandler.current
-    val options = BitmapFactory.Options().apply {
-        inSampleSize = 2
-    }
-    val bitmap = BitmapFactory.decodeResource(
-        context.resources,
-        com.dardev.land.R.drawable.reliefbleu,
-        options
-    )
+    val options =
+        BitmapFactory.Options().apply {
+            inSampleSize = 2
+        }
+    val bitmap =
+        BitmapFactory.decodeResource(
+            context.resources,
+            com.dardev.land.R.drawable.reliefbleu,
+            options,
+        )
     val imageBitmap = bitmap.asImageBitmap()
     val dataUserIdNavigation by viewModel.userId.collectAsState()
     val dataConfirmProfilNavigation by viewModel.yourProfile.collectAsState()
     val coroutineScope = rememberCoroutineScope()
     val list: List<LandPost> = emptyList()
-    val listPin = remember {
-        mutableStateOf(list)
-    }
+    val listPin =
+        remember {
+            mutableStateOf(list)
+        }
 
-    var user = remember {
-        mutableStateOf(LandUser("", "", "", "", true))
-    }
+    var user =
+        remember {
+            mutableStateOf(LandUser("", "", "", "", true))
+        }
 
-    val connectedUserId = remember {
-        mutableStateOf("")
-    }
+    val connectedUserId =
+        remember {
+            mutableStateOf("")
+        }
 
-    val isYourProfil = remember {
-        mutableStateOf(false)
-    }
+    val isYourProfil =
+        remember {
+            mutableStateOf(false)
+        }
 
-    val imageUrl = remember {
-        mutableStateOf("")
-    }
+    val imageUrl =
+        remember {
+            mutableStateOf("")
+        }
 
-    val followingCount = remember {
-        mutableStateOf<Long>(0)
-    }
+    val followingCount =
+        remember {
+            mutableStateOf<Long>(0)
+        }
 
-    val followerCount = remember {
-        mutableStateOf<Long>(0)
-    }
+    val followerCount =
+        remember {
+            mutableStateOf<Long>(0)
+        }
 
-    val isFollow = remember {
-        mutableStateOf(false)
-    }
+    val isFollow =
+        remember {
+            mutableStateOf(false)
+        }
 
-    val isRequestPending = remember {
-        mutableStateOf(false)
-    }
-    val isLoading = remember {
-        mutableStateOf(false)
-    }
+    val isRequestPending =
+        remember {
+            mutableStateOf(false)
+        }
+    val isLoading =
+        remember {
+            mutableStateOf(false)
+        }
 
     var showFollowDialog by rememberSaveable {
         mutableStateOf(false)
@@ -102,8 +114,9 @@ fun ProfilScreen(
         }
 
         if (user.value.ProfilPicture.isNotEmpty()) {
-            val ref = Firebase.storage.reference
-                .child(user.value.ProfilPicture)
+            val ref =
+                Firebase.storage.reference
+                    .child(user.value.ProfilPicture)
             ref.downloadUrl
                 .addOnSuccessListener { uri ->
                     imageUrl.value = uri.toString()
@@ -117,54 +130,58 @@ fun ProfilScreen(
         FollowerDialog(
             onDismissRequest = { showFollowDialog = false },
             listOfUsers = listOf<LandUser>(),
-            showFollowers = showFollowers
+            showFollowers = showFollowers,
         )
     }
 
     Scaffold(
-        topBar = {}
+        topBar = {},
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
         ) {
             // Image de fond
             Image(
                 bitmap = imageBitmap,
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .alpha(0.5f)
+                modifier =
+                    Modifier
+                        .fillMaxHeight()
+                        .alpha(0.5f),
             )
 
             Column(
-                modifier = Modifier
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier =
+                    Modifier
+                        .fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(
-                            RoundedCornerShape(
-                                bottomStart = 50.dp,
-                                bottomEnd = 50.dp
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(
+                                RoundedCornerShape(
+                                    bottomStart = 50.dp,
+                                    bottomEnd = 50.dp,
+                                ),
                             )
-                        )
-                        .background(
-                            MaterialTheme.colorScheme.profilContent
-                        )
-                        .border(
-                            width = 0.5.dp,
-                            color = Color.Black,
-                            shape = RoundedCornerShape(
-                                bottomStart = 50.dp,
-                                bottomEnd = 50.dp
+                            .background(
+                                MaterialTheme.colorScheme.profilContent,
                             )
-                        )
-
+                            .border(
+                                width = 0.5.dp,
+                                color = Color.Black,
+                                shape =
+                                    RoundedCornerShape(
+                                        bottomStart = 50.dp,
+                                        bottomEnd = 50.dp,
+                                    ),
+                            ),
                 ) {
                     if (isLoading.value) {
                         LandLoadingIcon()
@@ -179,7 +196,7 @@ fun ProfilScreen(
                                 viewModel.analyticsEvent("Click_Disconnect_Button")
                             },
                             isYourProfile = isYourProfil.value,
-                            idVerification = connectedUserId.value != user.value.UserId
+                            idVerification = connectedUserId.value != user.value.UserId,
                         )
                         LandUserInfoItem(
                             landUser = user.value,
@@ -188,18 +205,18 @@ fun ProfilScreen(
                                     if (!user.value.IsPrivate) {
                                         viewModel.setFollowingUser(
                                             userId = connectedUserId.value,
-                                            userIdFollow = user.value.UserId
+                                            userIdFollow = user.value.UserId,
                                         )
                                         viewModel.setFollowerUser(
                                             userId = user.value.UserId,
-                                            userIdFollower = connectedUserId.value
+                                            userIdFollower = connectedUserId.value,
                                         )
                                         isFollow.value = true
                                         viewModel.analyticsEvent("Click_Follow_Button")
                                     } else {
                                         viewModel.sendRequestAccount(
                                             connectedUserId.value,
-                                            user.value.UserId
+                                            user.value.UserId,
                                         )
                                         isRequestPending.value = true
                                         isFollow.value = false
@@ -212,11 +229,11 @@ fun ProfilScreen(
                                     if (isFollow.value) {
                                         viewModel.setUnFollowingUser(
                                             userId = connectedUserId.value,
-                                            userIdFollow = user.value.UserId
+                                            userIdFollow = user.value.UserId,
                                         )
                                         viewModel.setUnFollowerUser(
                                             userId = user.value.UserId,
-                                            userIdFollower = connectedUserId.value
+                                            userIdFollower = connectedUserId.value,
                                         )
                                         isFollow.value = false
                                         viewModel.analyticsEvent("Click_UnFollow_Button")
@@ -228,11 +245,11 @@ fun ProfilScreen(
                                     if (isRequestPending.value) {
                                         viewModel.deleteRequestfollow(
                                             connectedUserId.value,
-                                            user.value.UserId
+                                            user.value.UserId,
                                         )
                                         isRequestPending.value = false
                                         viewModel.analyticsEvent(
-                                            "Click_Cancel_Request_Follow_Button"
+                                            "Click_Cancel_Request_Follow_Button",
                                         )
                                     }
                                 }
@@ -243,7 +260,7 @@ fun ProfilScreen(
                             followersCount = followerCount.value,
                             followingCount = followingCount.value,
                             isUserFollow = isFollow,
-                            isRequestFollowSend = isRequestPending
+                            isRequestFollowSend = isRequestPending,
 //                            eventShowFollowers = {
                             /* commenting out for now until api for followers
                             and following is completed */
@@ -257,19 +274,19 @@ fun ProfilScreen(
                     onFeedbackClick = {
                         uriHandler
                             .openUri(
-                                "https://forms.gle/gPNMZ7NcommuQLT4A"
+                                "https://forms.gle/gPNMZ7NcommuQLT4A",
                             )
-                    }
+                    },
                 )
                 if (isLoading.value) {
                     LandLoadingIconScreen()
                 } else {
                     LandCarouselPostUser(
                         listPin.value,
-                        navController
+                        navController,
                     )
                 }
-                /*LandMaps(listPin.value, navController, false, null)*/
+                // LandMaps(listPin.value, navController, false, null)
 
                 // Non Utilisé Pour V1 Land
                 // LandProfilFilterFeed()

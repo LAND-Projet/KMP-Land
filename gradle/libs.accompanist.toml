@@ -1,5 +1,5 @@
 [versions]
-accompanistPermissions = "0.23.1"
+accompanistPermissions = "0.37.0"
 
 [libraries]
 permission = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }

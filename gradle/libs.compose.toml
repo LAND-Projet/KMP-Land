@@ -1,11 +1,11 @@
 [versions]
-nav = "2.7.7"
+nav = "2.8.6"
 activityCompose = "1.9.1"
-lifecycle = "2.8.4"
-animation = "1.6.8"
+lifecycle = "2.8.7"
+animation = "1.7.7"
 
 [libraries]
 navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav" }
-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+activityCompose = { module = "androidx.activity:activity-compose", version = "1.10.0" }
 viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 animationCompose = { module = "androidx.compose.animation:animation", version.ref = "animation" }

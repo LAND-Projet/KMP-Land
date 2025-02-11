@@ -21,14 +21,14 @@ fun CopyrightText() {
     Row(
         modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp),
         horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = AndroidStringResource(id = SharedRes.strings.land_copyright_text),
             color = MaterialTheme.colorScheme.textColor,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.labelSmall
+            style = MaterialTheme.typography.labelSmall,
         )
     }
 }

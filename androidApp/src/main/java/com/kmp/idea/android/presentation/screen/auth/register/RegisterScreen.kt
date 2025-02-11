@@ -15,14 +15,16 @@ fun AuthSignUpScreen(
     navController: NavController,
     context: Context,
 ) {
-    val options = BitmapFactory.Options().apply {
-        inSampleSize = 2
-    }
-    val bitmap = BitmapFactory.decodeResource(
-        context.resources,
-        com.dardev.land.R.drawable.reliefbleu,
-        options
-    )
+    val options =
+        BitmapFactory.Options().apply {
+            inSampleSize = 2
+        }
+    val bitmap =
+        BitmapFactory.decodeResource(
+            context.resources,
+            com.dardev.land.R.drawable.reliefbleu,
+            options,
+        )
     val imageBitmap = bitmap.asImageBitmap()
     val scrollState = rememberScrollState()
     val uriHandler = LocalUriHandler.current
@@ -38,38 +40,41 @@ fun AuthSignUpScreen(
     val resourceId = remember { mutableStateOf<StringResource?>(null) }
     val isLoading = remember { mutableStateOf(false) }
     val termsText = AndroidStringResource(id = SharedRes.strings.terms_of_use_text_label)
-    val annotatedText = buildAnnotatedString {
-        pushStyle(SpanStyle(color = MaterialTheme.colorScheme.textColor))
-        append(AndroidStringResource(id = SharedRes.strings.accept_use_condition))
-        pushStyle(SpanStyle(color = blueShade))
-        addStringAnnotation(
-            tag = "TermsLink",
-            annotation = "TermsLink",
-            start = length - termsText.length,
-            end = length
-        )
-        append(" " + AndroidStringResource(id = SharedRes.strings.terms_of_use_text_label))
-        pop()
-    }
+    val annotatedText =
+        buildAnnotatedString {
+            pushStyle(SpanStyle(color = MaterialTheme.colorScheme.textColor))
+            append(AndroidStringResource(id = SharedRes.strings.accept_use_condition))
+            pushStyle(SpanStyle(color = blueShade))
+            addStringAnnotation(
+                tag = "TermsLink",
+                annotation = "TermsLink",
+                start = length - termsText.length,
+                end = length,
+            )
+            append(" " + AndroidStringResource(id = SharedRes.strings.terms_of_use_text_label))
+            pop()
+        }
 
-    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestEmail()
-        .requestIdToken(context.getString(R.string.default_web_client_id))
-        .requestId()
-        .requestProfile()
-        .build()
+    val gso =
+        GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .requestIdToken(context.getString(R.string.default_web_client_id))
+            .requestId()
+            .requestProfile()
+            .build()
 
     val googleSignInClient = GoogleSignIn.getClient(context, gso)
 
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val account = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            viewModel.handleSignUpResult(account)
-            navController.navigate(Screen.Home.route)
+    val launcher =
+        rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.StartActivityForResult(),
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val account = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                viewModel.handleSignUpResult(account)
+                navController.navigate(Screen.Home.route)
+            }
         }
-    }
 
     fun iconVisibility(visibility: Boolean): Int {
         return if (visibility) {
@@ -88,19 +93,20 @@ fun AuthSignUpScreen(
                 viewModel.verifyPasswordField(password.value).successful &&
                 viewModel.verifyRepeatPasswordField(
                     password.value,
-                    repeatedPassword.value
+                    repeatedPassword.value,
                 ).successful
             ) {
-                resourceId.value = viewModel.applySignUp(
-                    LandSignUpData(
-                        username.value,
-                        email.value,
-                        password.value,
-                        repeatedPassword.value,
-                        accountType.value,
-                        NotificationToken.getToken()
+                resourceId.value =
+                    viewModel.applySignUp(
+                        LandSignUpData(
+                            username.value,
+                            email.value,
+                            password.value,
+                            repeatedPassword.value,
+                            accountType.value,
+                            NotificationToken.getToken(),
+                        ),
                     )
-                )
                 viewModel.automateWorker(context)
             } else {
                 resourceId.value = SharedRes.strings.enroll_error_validation_message
@@ -110,39 +116,41 @@ fun AuthSignUpScreen(
     }
 
     Scaffold(
-        bottomBar = { CopyrightText() }
+        bottomBar = { CopyrightText() },
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
         ) {
             // Image de fond
             Image(
                 bitmap = imageBitmap,
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize().alpha(0.5f)
+                modifier = Modifier.fillMaxSize().alpha(0.5f),
             )
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 10.dp)
-                    .verticalScroll(scrollState),
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .padding(top = 10.dp)
+                        .verticalScroll(scrollState),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
             ) {
                 Image(
                     painterResource(id = com.dardev.land.R.drawable.logoauth),
                     modifier = Modifier.width(100.dp).height(120.dp),
                     alignment = Alignment.TopCenter,
-                    contentDescription = ""
+                    contentDescription = "",
                 )
                 Text(
                     text = AndroidStringResource(id = SharedRes.strings.signup_text_label),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
-                    style = MaterialTheme.typography.displayMedium
+                    style = MaterialTheme.typography.displayMedium,
                 )
                 Spacer(modifier = Modifier.height(50.dp))
 
@@ -150,19 +158,19 @@ fun AuthSignUpScreen(
                 Row(
                     modifier = Modifier.width(322.dp),
                     horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = AndroidStringResource(id = SharedRes.strings.email_text_label),
                         textAlign = TextAlign.Start,
                         modifier = Modifier.align(Alignment.CenterVertically),
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
                     )
                 }
                 LandOutlinedTextField(
                     email,
                     AndroidStringResource(id = SharedRes.strings.email_text_label),
-                    eventChange = { viewModel.verifyEmailField(email.value) }
+                    eventChange = { viewModel.verifyEmailField(email.value) },
                 )
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -170,13 +178,13 @@ fun AuthSignUpScreen(
                 Row(
                     modifier = Modifier.width(322.dp),
                     horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = AndroidStringResource(id = SharedRes.strings.username_text_label),
                         textAlign = TextAlign.Start,
                         modifier = Modifier.align(Alignment.CenterVertically),
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
                     )
                 }
                 LandOutlinedTextField(
@@ -184,7 +192,7 @@ fun AuthSignUpScreen(
                     AndroidStringResource(id = SharedRes.strings.username_text_label),
                     eventChange = {
                         viewModel.verifyUsernameField(username.value)
-                    }
+                    },
                 )
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -192,13 +200,13 @@ fun AuthSignUpScreen(
                 Row(
                     modifier = Modifier.width(322.dp),
                     horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = AndroidStringResource(id = SharedRes.strings.password_text_label),
                         textAlign = TextAlign.Start,
                         modifier = Modifier.align(Alignment.CenterVertically),
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
                     )
                 }
                 LandOutlinedTextField(
@@ -207,7 +215,7 @@ fun AuthSignUpScreen(
                     true,
                     passwordVisibility,
                     painterResource(id = iconVisibility(passwordVisibility.value)),
-                    eventChange = { viewModel.verifyPasswordField(password.value) }
+                    eventChange = { viewModel.verifyPasswordField(password.value) },
                 )
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -215,15 +223,16 @@ fun AuthSignUpScreen(
                 Row(
                     modifier = Modifier.width(322.dp),
                     horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = AndroidStringResource(
-                            id = SharedRes.strings.repeated_password_text_label
-                        ),
+                        text =
+                            AndroidStringResource(
+                                id = SharedRes.strings.repeated_password_text_label,
+                            ),
                         textAlign = TextAlign.Start,
                         modifier = Modifier.align(Alignment.CenterVertically),
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
                     )
                 }
                 LandOutlinedTextField(
@@ -234,38 +243,40 @@ fun AuthSignUpScreen(
                     painterResource(id = iconVisibility(repeatedPasswordVisibility.value)),
                     eventChange = {
                         viewModel.verifyRepeatPasswordField(password.value, repeatedPassword.value)
-                    }
+                    },
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = AndroidStringResource(
-                            id = SharedRes.strings.type_account_text_label
-                        ),
-                        style = MaterialTheme.typography.labelMedium
+                        text =
+                            AndroidStringResource(
+                                id = SharedRes.strings.type_account_text_label,
+                            ),
+                        style = MaterialTheme.typography.labelMedium,
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     Switch(
                         checked = accountType.value,
                         onCheckedChange = { accountType.value = it },
-                        colors = SwitchDefaults.colors(
-                            uncheckedThumbColor = lightGrey,
-                            checkedThumbColor = lightGrey,
-                            checkedTrackColor = successColor
-                        )
+                        colors =
+                            SwitchDefaults.colors(
+                                uncheckedThumbColor = lightGrey,
+                                checkedThumbColor = lightGrey,
+                                checkedTrackColor = successColor,
+                            ),
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     if (accountType.value) {
                         Text(
                             text = AndroidStringResource(id = SharedRes.strings.private_text_label),
-                            style = MaterialTheme.typography.labelMedium
+                            style = MaterialTheme.typography.labelMedium,
                         )
                     } else {
                         Text(
                             text = AndroidStringResource(id = SharedRes.strings.public_text_label),
-                            style = MaterialTheme.typography.labelMedium
+                            style = MaterialTheme.typography.labelMedium,
                         )
                     }
                 }
@@ -277,18 +288,18 @@ fun AuthSignUpScreen(
                         annotatedText.getStringAnnotations(
                             tag = "TermsLink",
                             start = offset,
-                            end = offset
+                            end = offset,
                         ).firstOrNull()?.let {
                             if (it.item == "TermsLink") {
                                 uriHandler
                                     .openUri(
                                         "https://www.termsfeed.com/live/" +
-                                                "ff8a726a-3f98-40b1-9987-ce642a96e5c0"
+                                            "ff8a726a-3f98-40b1-9987-ce642a96e5c0",
                                     )
                             }
                         }
                     },
-                    style = MaterialTheme.typography.labelMedium
+                    style = MaterialTheme.typography.labelMedium,
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 if (isLoading.value) {
@@ -296,7 +307,7 @@ fun AuthSignUpScreen(
                 } else {
                     LandButton(
                         eventClick = OnClickSignUp,
-                        content = AndroidStringResource(id = SharedRes.strings.enroll_text_button)
+                        content = AndroidStringResource(id = SharedRes.strings.enroll_text_button),
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     LandGoogleButton(
@@ -304,27 +315,29 @@ fun AuthSignUpScreen(
                             val signInIntent = googleSignInClient.signInIntent
                             launcher.launch(signInIntent)
                         },
-                        content = AndroidStringResource(
-                            id = SharedRes.strings.enroll_google_text_button
-                        )
+                        content =
+                            AndroidStringResource(
+                                id = SharedRes.strings.enroll_google_text_button,
+                            ),
                     )
                 }
                 if (resourceId.value != null) {
                     textToast.value = AndroidStringResource(id = resourceId.value!!)
-                    if (textToast.value == AndroidStringResource(
-                            id = SharedRes.strings.enroll_success_message
+                    if (textToast.value ==
+                        AndroidStringResource(
+                            id = SharedRes.strings.enroll_success_message,
                         )
                     ) {
                         SweetSuccess(
                             message = textToast.value,
-                            padding = PaddingValues(bottom = 16.dp)
+                            padding = PaddingValues(bottom = 16.dp),
                         )
                         textToast.value = ""
                         navController.navigate(Screen.Home.route)
                     } else {
                         SweetError(
                             message = textToast.value,
-                            padding = PaddingValues(bottom = 16.dp)
+                            padding = PaddingValues(bottom = 16.dp),
                         )
                         textToast.value = ""
                     }
@@ -335,25 +348,27 @@ fun AuthSignUpScreen(
                 Row(
                     modifier = Modifier.padding(5.dp),
                     horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = AndroidStringResource(
-                            id = SharedRes.strings.navigate_to_connexion_text_label
-                        ),
+                        text =
+                            AndroidStringResource(
+                                id = SharedRes.strings.navigate_to_connexion_text_label,
+                            ),
                         style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.textColor
+                        color = MaterialTheme.colorScheme.textColor,
                     )
                     Text(
                         text = AndroidStringResource(id = SharedRes.strings.connexion_text_button),
-                        modifier = Modifier
-                            .clickable {
-                                navController.navigate(Screen.SignIn.route)
-                            }
-                            .padding(start = 5.dp),
+                        modifier =
+                            Modifier
+                                .clickable {
+                                    navController.navigate(Screen.SignIn.route)
+                                }
+                                .padding(start = 5.dp),
                         fontWeight = FontWeight.Bold,
                         style = MaterialTheme.typography.labelSmall,
-                        color = blueShade
+                        color = blueShade,
                     )
                 }
             }
