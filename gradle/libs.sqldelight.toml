@@ -1,12 +1,13 @@
 [versions]
-sqldelight = "2.0.2"
+sqlDelight = "2.0.2"
 
 [libraries]
-sqlCommon = { module = "app.cash.sqldelight:runtime", version.ref = "sqldelight" }
-sqlDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
-sqlIos = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
-sqlAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
-sqlJKvm = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqldelight" }
+sqlCommon = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
+sqlDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
+sqlIos = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqlAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlJKvm = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqlDelight" }
+sqlCoroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 
 [plugins]
-initiliazer = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+sqldelight = { id = "app.cash.sqldelight" , version.ref = "sqlDelight" }

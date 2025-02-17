@@ -1,23 +1,28 @@
 import dev.icerock.gradle.MRVisibility
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
-    alias(google.plugins.googleServices)
     alias(other.plugins.ktlint)
     alias(moko.plugins.mokoResources)
-    //alias(sqldelight.plugins.initiliazer)
-    //id("app.cash.sqldelight") version "2.0.2" apply false
+    //alias(sqldelight.plugins.sqldelight)
 }
 
 kotlin {
-    android()
+    androidTarget {
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_1_8)
+                }
+            }
+        }
+    }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    task("testClasses")
-    jvmToolchain(21)
     /*targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
             linkerOpts.add("-lsqlite3")
@@ -41,34 +46,31 @@ kotlin {
     }
     
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                api(moko.mokoLibResources)
-                api(moko.mokoCompose)
-                implementation("dev.icerock.moko:parcelize:0.8.0")
-                //implementation(sqldelight.sqlCommon)
+        commonMain.dependencies {
+            api(moko.mokoLibResources)
+            //api(moko.mokoCompose)
+            //implementation("dev.icerock.moko:parcelize:0.8.0")
 
-                implementation(ktor.ktorCore)
-                implementation(ktor.ktorCio)
+            //implementation(sqldelight.sqlCoroutines)
 
-                implementation(coroutines.coroutineCoreKMM)
+            implementation(ktor.ktorCore)
+            implementation(ktor.ktorCio)
 
-                implementation(kotlinx.kotlinxSerialization)
-                implementation(kotlinx.kotlinxDatetime)
+            implementation(coroutines.coroutineCoreKMM)
 
-                implementation(other.napier)
-                implementation(other.slf4j)
+            implementation(kotlinx.kotlinxSerialization)
+            implementation(kotlinx.kotlinxDatetime)
 
-                api(koin.koinCore)
+            implementation(other.napier)
+            implementation(other.slf4j)
 
-                implementation(firebase.firebaseAuthentication)
-                implementation(firebase.firebaseFirestore)
-            }
+            api(koin.koinCore)
+
+            implementation(firebase.firebaseAuthentication)
+            implementation(firebase.firebaseFirestore)
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
         val androidMain by getting {
             kotlin.srcDir("build/generated/moko/androidMain/src")
@@ -85,40 +87,21 @@ kotlin {
             //implementation(sqldelight.sqlDriver)
             //implementation(sqldelight.sqlJKvm)
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-            dependencies {
-                //implementation(sqldelight.sqlIos)
-                implementation(ktor.ktorIos)
-                implementation(other.touchlabStately)
-            }
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
+        iosMain.dependencies {
+            //implementation(sqldelight.sqlIos)
+            implementation(ktor.ktorIos)
+            implementation(other.touchlabStately)
         }
     }
 }
 
 /*sqldelight {
     databases {
-        create("IdeaDatabase") {
+        create("IdeaDB") {
             packageName.set("com.kmp.idea.database")
-            srcDirs.setFrom("src/commonMain/sqldelight")
+            //srcDirs.setFrom("src/commonMain/sqldelight")
         }
     }
-    linkSqlite = true
 }*/
 
 android {
@@ -128,8 +111,8 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
@@ -144,7 +127,7 @@ multiplatformResources {
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     verbose.set(true)
     ignoreFailures.set(false)
-    //disabledRules.set(setOf("final-newline", "no-wildcard-imports","function-naming"))
+    disabledRules.set(setOf("final-newline", "no-wildcard-imports","function-naming"))
     reporters {
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
         reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)

@@ -1,11 +1,13 @@
 [versions]
-agp = "8.8.0"
+agp = "8.8.1"
+gradlePlugin = "2.0.2"
 kotlin = "2.0.0"
 compose = "1.6.8"
 compose-material3 = "1.2.1"
 androidx-activityCompose = "1.9.1"
 
 [libraries]
+gradle-plugin = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "gradlePlugin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
