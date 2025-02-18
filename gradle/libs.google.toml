@@ -3,6 +3,7 @@ review = "2.0.2"
 map = "6.4.4"
 play-service = "19.0.0"
 google-places = "4.1.0"
+google-service = "4.4.2"
 guava = "33.4.0-jre"
 ads = "23.6.0"
 auth = "21.3.0"
@@ -18,5 +19,5 @@ playAdsService = { module = "com.google.android.gms:play-services-ads", version.
 auth = { module = "com.google.android.gms:play-services-auth", version.ref = "auth" }
 
 [plugins]
-googleServices = { id = "com.google.gms.google-services", version = "4.4.2" }
+googleServices = { id = "com.google.gms.google-services" }
 mapsSecrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version = "2.0.1" }

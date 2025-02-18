@@ -7,7 +7,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(other.plugins.ktlint)
     alias(moko.plugins.mokoResources)
-    //alias(sqldelight.plugins.sqldelight)
+    //alias(libs.plugins.sqldelight)
+    //id("app.cash.sqldelight") version "2.0.2"
 }
 
 kotlin {
@@ -23,11 +24,11 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    /*targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
             linkerOpts.add("-lsqlite3")
         }
-    }*/
+    }
 
     cocoapods {
         summary = "Some description for the Shared Module"
