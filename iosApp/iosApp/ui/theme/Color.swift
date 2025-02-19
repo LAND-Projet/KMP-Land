@@ -22,44 +22,52 @@ extension SwiftUI.Color{
     }
     
     private static let colors = Colors()
-    static let blueShade = Color(hex:colors.BlueShade)
-    static let darkBlue = Color(hex:colors.DarkBlue)
-    static let navyBlue = Color(hex:colors.NavyBlue)
-    static let lightGrey = Color(hex:colors.LightGrey)
+
+    static let darkBackground = Color(hex: colors.DarkBackground)
+    static let darkForeground = Color(hex: colors.DarkForeground)
+    static let lightBackground = Color(hex: colors.LightBackground)
+    static let lightForeground = Color(hex: colors.LightForeground)
+
+    static let lightBottomTopBarBackground = Color(hex: colors.LightBottomTopBackground)
+    static let darkBottomTopBarBackground = Color(hex: colors.DarkBottomTopBackground)
+
+    static let successColor = Color(hex: colors.SuccessGreen)
+    static let errorColor = Color(hex: colors.ErrorRed)
+    static let infoColor = Color(hex: colors.InfoBlue)
+    static let warningColor = Color(hex: colors.WarningYellow)
+    static let switchTrackUnchecked = Color(hex: colors.uncheckedSwitch)
     
-    static let successGreen = Color(hex:colors.SuccessGreen)
-    static let errorRed = Color(hex:colors.ErrorRed)
-    static let infoBlue = Color(hex:colors.InfoBlue)
-    static let warningYellow = Color(hex:colors.WarningYellow)
+    static let primaryColor = Color(light: .lightForeground, dark: .darkForeground)
+    static let background = Color(light: .lightBackground, dark: .darkBackground)
+    static let onPrimary = Color(light: .lightBackground, dark: .darkBackground)
+    static let onBackground = Color(light: .lightForeground, dark: .darkForeground)
+    static let surface = Color(light: .darkBackground, dark: .darkBackground)
+    static let onSurface = Color(light: .lightBackground, dark: .lightBackground)
     
-    static let ticketmasterForegroundLight = Color(hex:colors.ticketmasterForegroundLight)
-    static let ticketmasterForegroundDark = Color(hex:colors.ticketmasterForegroundDark)
-    static let ticketmasterBackgroundLight = Color(hex:colors.ticketmasterBackgroundLight)
-    static let ticketmasterBackgroundDark = Color(hex:colors.ticketmasterBackgroundDark)
-    
-    static let primaryColor = Color(light: .blueShade, dark: .navyBlue)
-    static let background = Color(light: .lightGrey, dark: .navyBlue)
-    static let onPrimary = Color(light: .lightGrey, dark: .lightGrey)
-    static let onBackground = Color(light: .navyBlue, dark: .lightGrey)
-    static let onBackgroundTicketMaster = Color(light: .ticketmasterBackgroundLight, dark: .ticketmasterBackgroundDark)
-    static let onForegroundTicketMaster = Color(light: .ticketmasterForegroundLight, dark: .ticketmasterForegroundDark)
-    static let surface = Color(light: .darkBlue, dark: .darkBlue)
-    static let onSurface = Color(light: .lightGrey, dark: .lightGrey)
-    
-    static let buttonBackground = Color(light: .lightGrey, dark: .blueShade)
-    static let buttonContent = Color(light: .blueShade, dark: .lightGrey)
-    
-    static let iconbuttonBackground = Color(light: .lightGrey, dark: .navyBlue)
-    static let iconbuttonContent = Color(light: .blueShade, dark: .lightGrey)
-    
-    static let clickableIconContent = Color(light: .navyBlue, dark: .lightGrey)
-    
-    static let textColor = Color(light: .navyBlue, dark: .lightGrey)
-    static let backgroundTop = Color(light: .blueShade, dark: .navyBlue)
-    
-    static let buttonFeedbackBackground = Color(light: .blueShade, dark: .lightGrey)
-    static let feedbackBoxColor = Color(light: .lightGrey, dark: .navyBlue)
-    static let feedbackTextColor = Color(light: .navyBlue, dark: .lightGrey)
+    static let bottomBarBackground = Color(light: .lightBottomTopBarBackground, dark: .darkBottomTopBarBackground)
+    static let topBarBackground = Color(light: .lightBottomTopBarBackground, dark: .darkBottomTopBarBackground)
+
+    static let buttonFeedbackBackground = .infoColor
+    static let feedbackBoxBackground = Color(light: .lightBackground, dark: .darkBackground)
+    static let feedbackTextForeground = Color(light: .lightForeground, dark: .darkForeground)
+
+    static let buttonBackground = Color(light: .lightBackground, dark: .darkBackground)
+    static let buttonContent = Color(light: .lightForeground, dark: .darkForeground)
+
+    static let iconbuttonBackground = Color(light: .lightBackground, dark: .darkBackground)
+    static let iconbuttonContent = Color(light: .lightForeground, dark: .darkForeground)
+
+    static let clickableIconContent = Color(light: .lightForeground, dark: .darkForeground)
+    static let textColor = Color(light: .lightForeground, dark: .darkForeground)
+
+    static let profilContentTop = Color(light: .lightBackground, dark: .darkBackground)
+    static let profilContent = Color(light: .lightForeground, dark: .darkForeground)
+
+    static let textFieldBackground = Color(light: .darkForeground, dark: .lightBackground)
+    static let textFieldContent = Color(light: .lightForeground, dark: .lightForeground)
+
+    static let popUpBackground = Color(light: .lightBackground, dark: .darkBackground)
+    static let popUpContent = Color(light: .lightForeground, dark: .darkForeground)
     
 }
 
