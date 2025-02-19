@@ -27,6 +27,41 @@ struct IconButton: View {
     }
 }
 
+struct IconBottomBar: View {
+    let content: KeyPath<SharedRes.images, shared.ImageResource>
+    var condition: () -> Void
+    let activeButton: Bool
+    let labelIcon: String
+
+    var body: some View {
+        Button(action: {
+            condition()
+        }) {
+            HStack {
+                if activeButton {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15, style: .continuous).fill(Color.buttonBackground).frame(width: 35.73, height: 36.88).shadow(radius: 2)
+                        Image(resource: content)
+                            .resizable()
+                            .frame(width: 16, height: 16)
+                    }
+                } else {
+                    Image(resource: content)
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                    if labelIcon != "" {
+                        Text(labelIcon)
+                            .font(.custom(.pBody))
+                            .foregroundColor(Color.textColor)
+                    }
+                }
+            }
+            .padding()
+            .background(Color.clear)
+        }
+    }
+}
+
 struct IconIOSButton: View {
     let content: String
     var condition: () -> Void

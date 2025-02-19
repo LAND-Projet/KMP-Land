@@ -30,7 +30,7 @@ struct RoundedTopBar: View {
                 .frame(height: 106)
                 .foregroundColor(Color.background)
                 .shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 2)
-                
+
             HStack(alignment: .center) {
                 Spacer()
                 if #available(iOS 17.0, *) {
