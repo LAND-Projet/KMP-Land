@@ -16,14 +16,7 @@ struct RoundedTopBar: View {
     let pinPlaceTip = PinPlaceTip()
     let pinTicketmasterTip = PinTicketmasterTip()
     
-    var onClickParameter: () -> Void {
-        return {
-            AnalyticsManager.manager.logEvent(name: "Click_Parameter_Button")
-            selection = "Parameter"
-        }
-    }
-    
-    var onClick: () -> Void {
+    var onClickTheme: () -> Void {
         return {
             AnalyticsManager.manager.logEvent(name: "Click_Notification_Button")
             selection = "Notification"
@@ -32,11 +25,12 @@ struct RoundedTopBar: View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-            RoundedRectCorner(radius: 50, corners: [.bottomLeft, .bottomRight])
+            Rectangle()
                 .frame(maxWidth: .infinity)
                 .frame(height: 106)
                 .foregroundColor(Color.background)
                 .shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 2)
+                
             HStack(alignment: .center) {
                 Spacer()
                 if #available(iOS 17.0, *) {

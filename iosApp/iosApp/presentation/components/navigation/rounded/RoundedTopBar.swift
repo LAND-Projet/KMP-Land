@@ -16,14 +16,7 @@ struct RoundedTopBar: View {
     let pinPlaceTip = PinPlaceTip()
     let pinTicketmasterTip = PinTicketmasterTip()
     
-    var onClickParameter: () -> Void {
-        return {
-            AnalyticsManager.manager.logEvent(name: "Click_Parameter_Button")
-            selection = "Parameter"
-        }
-    }
-    
-    var onClick: () -> Void {
+    var onClickTheme: () -> Void {
         return {
             AnalyticsManager.manager.logEvent(name: "Click_Notification_Button")
             selection = "Notification"

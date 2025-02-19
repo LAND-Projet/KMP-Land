@@ -72,19 +72,15 @@ struct BottomBar: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            Capsule()
+            Rectangle()
                 .frame(height: 81)
                 .foregroundColor(Color.background)
                 .shadow(radius: 2)
-            /*RoundedRectangle(cornerRadius: 50)
-                .fill(Color.background)
-                .frame(height: 81)
-                .shadow(radius: 2)*/
             HStack {
                 Spacer(minLength: 3)
                 if UIDevice.current.userInterfaceIdiom != .pad {
-                    LandIconBottomBar(
-                        content: \.homeiconlight,
+                    IconBottomBar(
+                        content: colorScheme == .dark ? \.searchicondark : \.searchiconlight,
                         condition: onClickHome,
                         activeButton: true,
                         labelIcon: ""
@@ -98,35 +94,30 @@ struct BottomBar: View {
                     )*/
                     Spacer(minLength: 2)
                     if #available(iOS 17.0, *) {
-                        LandInfoButton(
-                            content: \.pinlocation,
-                            smallText: "Swipy",
-                            clickEvent: onClickSwipy
+                        IconBottomBar(
+                            content: colorScheme == .dark ? \.searchicondark : \.searchiconlight,
+                            condition: onClickHome,
+                            activeButton: true,
+                            labelIcon: ""
                         ).popoverTip(bottomBarTip)
                     } else {
-                        LandInfoButton(
-                            content: \.pinlocation,
-                            smallText: "Swipy",
-                            clickEvent: onClickSwipy
+                        IconBottomBar(
+                            content: colorScheme == .dark ? \.searchicondark : \.searchiconlight,
+                            condition: onClickHome,
+                            activeButton: true,
+                            labelIcon: ""
                         )
                     }
                     Spacer(minLength: 2)
-                    /*LandIconBottomBar(
-                        content: colorScheme == .dark ? \.addicondark : \.addiconlight,
-                        condition: onClickAdd,
-                        activeButton: false,
-                        labelIcon: ""
-                    )
-                    Spacer(minLength: 2)*/
                     if #available(iOS 17.0, *) {
-                        LandIconBottomBar(
+                        IconBottomBar(
                             content: colorScheme == .dark ? \.usericondark : \.usericonlight,
                             condition: onClickProfil,
                             activeButton: false,
                             labelIcon: ""
                         ).popoverTip(feedbackTip)
                     } else {
-                        LandIconBottomBar(
+                        IconBottomBar(
                             content: colorScheme == .dark ? \.usericondark : \.usericonlight,
                             condition: onClickProfil,
                             activeButton: false,
@@ -134,54 +125,38 @@ struct BottomBar: View {
                         )
                     }
                 } else {
-                    LandIconIpadClickable(
-                        content: \.homeiconlight,
+                    IconIpadClickable(
+                        content: colorScheme == .dark ? \.searchicondark : \.searchiconlight,
                         condition: onClickHome,
                         activeButton: true,
                         labelIcon: ""
                     )
-
-                    /*Spacer()
-                    LandIconIpadClickable(
-                        content: colorScheme == .dark ? \.searchicondark : \.searchiconlight,
-                        condition: onClickSearch,
-                        activeButton: false,
-                        labelIcon: ""
-                    )*/
-                    
                     Spacer()
                     if #available(iOS 17.0, *) {
-                        LandInfoiPadButton(
-                            content: \.pinlocation,
-                            smallText: "Swipy",
-                            clickEvent: onClickSwipy
+                        IconIpadClickable(
+                            content: colorScheme == .dark ? \.usericondark : \.usericonlight,
+                            condition: onClickProfil,
+                            activeButton: false,
+                            labelIcon: ""
                         ).popoverTip(bottomBarTip)
                     } else {
-                        LandInfoiPadButton(
-                            content: \.pinlocation,
-                            smallText: "Swipy",
-                            clickEvent: onClickSwipy
+                        IconIpadClickable(
+                            content: colorScheme == .dark ? \.usericondark : \.usericonlight,
+                            condition: onClickProfil,
+                            activeButton: false,
+                            labelIcon: ""
                         )
                     }
-                    /*Spacer()
-                    
-                    LandIconIpadClickable(
-                        content: colorScheme == .dark ? \.addicondark : \.addiconlight,
-                        condition: onClickAdd,
-                        activeButton: false,
-                        labelIcon: ""
-                    )*/
-
                     Spacer()
                     if #available(iOS 17.0, *) {
-                        LandIconIpadClickable(
+                        IconIpadClickable(
                             content: colorScheme == .dark ? \.usericondark : \.usericonlight,
                             condition: onClickProfil,
                             activeButton: false,
                             labelIcon: ""
                         ).popoverTip(feedbackTip)
                     } else {
-                        LandIconIpadClickable(
+                        IconIpadClickable(
                             content: colorScheme == .dark ? \.usericondark : \.usericonlight,
                             condition: onClickProfil,
                             activeButton: false,
@@ -193,7 +168,7 @@ struct BottomBar: View {
                 Spacer(minLength: 3)
             }.frame(height: 80)
             if showingAddPopup {
-                LandPopUpAddNavigation(
+                PopUpAddNavigation(
                     isPresented: $showingAddPopup,
                     onCreatePostClick: {
                         onNavPostCreation()
@@ -211,10 +186,5 @@ struct BottomBar: View {
                 .offset(y: 0)
             }
         }.padding(.horizontal)
-        /* if (refreshPins != nil) {
-             Spacer()
-             LandIconButton(content: "arrow.clockwise", condition: refreshPins!)
-         }
-         Spacer() */
     }
 }
