@@ -14,7 +14,7 @@ struct OutlinedTextField: View {
     let contentText:String
     let labelText:String
     var sfSymbolName: String
-    var isSecure:Bool = false
+    var isPasswordField:Bool = false
     let eventValidate: () -> ValidateResult
     @State var prompt: ValidateResult = ValidateResult(successful: true,errorMessage: SharedRes.strings().logo_land, errorString: "")
     @State var showPassword: Bool = false
@@ -25,59 +25,59 @@ struct OutlinedTextField: View {
             if(labelText != ""){
                 Text(labelText)
                     .font(.custom(.h1Large))
-                    .foregroundColor(Color.textColor)
+                    .foregroundColor(Color.textFieldContent)
             }
             
             HStack{
-                if isSecure {
+                if isPasswordField {
                     Button(action: {
                         showPassword = !showPassword
                     }) {
                         Image(systemName: sfSymbolName)
-                            .foregroundColor(Color.navyBlue)
+                            .foregroundColor(Color.textFieldContent)
                             .font(.headline)
                     }
                     if showPassword == false {
                         SecureField("", text: $textValue)
                             .autocapitalization(.none)
-                            .foregroundColor(Color.navyBlue)
+                            .foregroundColor(Color.textFieldContent)
                             .onChange(of: textValue) { newValue in
                                 print("Name changed to \(textValue)!")
                                 prompt = eventValidate()
                             }
                             .placeholder(when: textValue.isEmpty) {
-                                    Text(contentText).foregroundColor(Color.navyBlue).opacity(50)
+                                    Text(contentText).foregroundColor(Color.textFieldContent).opacity(50)
                             }
                     } else {
                         TextField("", text: $textValue)
                             .autocapitalization(.none)
-                            .foregroundColor(Color.navyBlue)
+                            .foregroundColor(Color.textFieldContent)
                             .onChange(of: textValue) { newValue in
                                 print("Name changed to \(textValue)!")
                                 prompt = eventValidate()
                             }
                             .placeholder(when: textValue.isEmpty) {
-                                    Text(contentText).foregroundColor(Color.navyBlue).opacity(50)
+                                    Text(contentText).foregroundColor(Color.textFieldContent).opacity(50)
                             }
                     }
                 } else {
                     Image(systemName: sfSymbolName)
-                        .foregroundColor(Color.navyBlue)
+                        .foregroundColor(Color.textFieldContent)
                         .font(.headline)
                     TextField("", text: $textValue)
                         .autocapitalization(.none)
-                        .foregroundColor(Color.navyBlue)
+                        .foregroundColor(Color.textFieldContent)
                         .onChange(of: textValue) { newValue in
                             print("Name changed to \(textValue)!")
                             prompt = eventValidate()
                         }
                         .placeholder(when: textValue.isEmpty) {
-                                Text(contentText).foregroundColor(Color.navyBlue).opacity(50)
+                                Text(contentText).foregroundColor(Color.textFieldContent).opacity(50)
                         }
                 }
             }.padding(20)
                 .frame(height: 75)
-                .background(RoundedRectangle(cornerRadius: 50).fill(Color.lightGrey).shadow(radius: 2))
+                .background(RoundedRectangle(cornerRadius: 50).fill(Color.textFieldBackground).shadow(radius: 2))
             if !prompt.successful {
                 Text(IosStringResources(id: (prompt.errorMessage)!, args: []))
                     .fixedSize(horizontal: false, vertical: true)

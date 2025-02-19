@@ -12,12 +12,8 @@ struct LoadingButton: View {
     var body: some View {
         Button(action: {}) {
             ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: Color.lightGrey))
-        }.frame(width: 322,height: 75).background(LinearGradient(
-            gradient: Gradient(colors:[Color.blueShade, Color.navyBlue]),
-            startPoint: .leading,
-            endPoint: .trailing
-        )).cornerRadius(50)
+                .progressViewStyle(CircularProgressViewStyle(tint: Color.buttonContent))
+        }.frame(width: 322,height: 75).background(Color.buttonBackground).cornerRadius(50)
             .disabled(true)
         
     }
@@ -27,13 +23,11 @@ struct LoadingButtonParameter: View {
     var body: some View {
         Button(action: {}) {
             ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: Color.lightGrey))
-        }.frame(width: 150,height: 50).background(LinearGradient(
-            gradient: Gradient(colors:[Color.blueShade, Color.navyBlue]),
-            startPoint: .leading,
-            endPoint: .trailing
-        )).cornerRadius(50)
-            .disabled(true)
+                .progressViewStyle(CircularProgressViewStyle(tint: Color.buttonContent))
+        }.frame(width: 150,height: 50)
+        .background(Color.buttonBackground)
+        .cornerRadius(50)
+        .disabled(true)
         
     }
 }

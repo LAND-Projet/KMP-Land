@@ -10,7 +10,7 @@
 import SwiftUI
 import shared
 
-struct LandIconButton: View {
+struct IconButton: View {
     let content: KeyPath<SharedRes.images, shared.ImageResource>
     var condition: () -> Void
     
@@ -27,7 +27,7 @@ struct LandIconButton: View {
     }
 }
 
-struct LandIconIOSButton: View {
+struct IconIOSButton: View {
     let content: String
     var condition: () -> Void
     
@@ -44,34 +44,7 @@ struct LandIconIOSButton: View {
     }
 }
 
-struct LandIconNotificationBadgeButton: View {
-    let content: KeyPath<SharedRes.images, shared.ImageResource>
-    var condition: () -> Void
-    var isActive: Bool
-    
-    var body: some View {
-        Button(action: {
-            condition()
-        }) {
-            ZStack{
-            
-                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.iconbuttonBackground).frame(width: 36.5,height: 35.96).shadow(radius: 2)
-                ZStack(alignment: .topTrailing){
-                    Image(resource: content).resizable().frame(width: 16.5,height: 15.96)
-                    
-                    if isActive {
-                        Circle()
-                            .fill(Color.errorRed)
-                            .frame(width: 8, height: 8)
-                            .offset(x: 8, y: -8)
-                    }
-                }
-            }
-        }
-    }
-}
-
-struct LandIconSizedButton: View {
+struct IconSizedButton: View {
     let content: KeyPath<SharedRes.images, shared.ImageResource>
     var condition: () -> Void
     
@@ -90,7 +63,7 @@ struct LandIconSizedButton: View {
 
 // ==== IPAD Component =====
 
-struct LandIconIpadButton: View {
+struct IconIpadButton: View {
     let content: KeyPath<SharedRes.images, shared.ImageResource>
     var condition: () -> Void
     
@@ -107,7 +80,7 @@ struct LandIconIpadButton: View {
     }
 }
 
-struct LandIconIOSIpadButton: View {
+struct IconIOSIpadButton: View {
     let content: String
     var condition: () -> Void
     
@@ -119,33 +92,6 @@ struct LandIconIOSIpadButton: View {
             
                 RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.iconbuttonBackground).frame(width: 40,height: 40).shadow(radius: 2)
                 Image(systemName: content).resizable().frame(width: 25,height: 25).foregroundColor(Color.errorRed)
-            }
-        }
-    }
-}
-
-struct LandIconIpadNotificationBadgeButton: View {
-    let content: KeyPath<SharedRes.images, shared.ImageResource>
-    var condition: () -> Void
-    var isActive: Bool
-    
-    var body: some View {
-        Button(action: {
-            condition()
-        }) {
-            ZStack{
-            
-                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.iconbuttonBackground).frame(width: 40,height: 40).shadow(radius: 2)
-                ZStack(alignment: .topTrailing){
-                    Image(resource: content).resizable().frame(width: 25,height: 25)
-                    
-                    if isActive {
-                        Circle()
-                            .fill(Color.errorRed)
-                            .frame(width: 8, height: 8)
-                            .offset(x: 8, y: -8)
-                    }
-                }
             }
         }
     }

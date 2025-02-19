@@ -12,18 +12,18 @@ import shared
 struct PopUpAddNavigation: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var isPresented: Bool
-    var onCreatePostClick: () -> Void
-    var onCreateEventClick: () -> Void
+    var onFirstOptionClick: () -> Void
+    var onSecondOptionClick: () -> Void
     
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             AddNavButton(
-                eventClick: onCreatePostClick,
+                eventClick: onFirstOptionClick,
                 content: IosStringResources(id:SharedRes.strings().add_post_popup_text,args:[]),
                 iconName: colorScheme == .dark ? \.cameradark : \.cameralight
             )
             AddNavButton(
-                eventClick: onCreateEventClick,
+                eventClick: onSecondOptionClick,
                 content: IosStringResources(id:SharedRes.strings().add_event_popup_text,args:[]),
                 iconName: colorScheme == .dark ? \.eventlight : \.eventdark
             )

@@ -47,7 +47,7 @@ struct IconTextCancelButton: View {
                 Text(text)
                     .fontWeight(.bold)
                     .font(.custom(.h3Large))
-                    .foregroundColor(Color.navyBlue)
+                    .foregroundColor(Color.darkBackground)
 
                 Image(resource: icon)
                     .resizable()

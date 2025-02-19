@@ -15,15 +15,15 @@ struct CustomToggleStyle: ToggleStyle {
             Spacer()
             
             RoundedRectangle(cornerRadius: 16)
-                .fill(configuration.isOn ? Color.blueShade : Color.gray)
+                .fill(configuration.isOn ? Color.successColor : Color.gray)
                 .frame(width: 51, height: 31)
                 .overlay(
                     Circle()
-                        .fill(Color.lightGrey)
+                        .fill(Color.lightBackground)
                         .padding(3)
                         .overlay(
                             Circle()
-                                .stroke(configuration.isOn ? Color.blueShade : Color.gray, lineWidth: 1)
+                                .stroke(configuration.isOn ? Color.successColor : Color.gray, lineWidth: 1)
                         )
                         .shadow(color: .gray, radius: 3, x: 0, y: 3)
                         .offset(x: configuration.isOn ? 10 : -10)
