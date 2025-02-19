@@ -47,18 +47,18 @@ struct SettingsScreen: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack{
-                        LandParameterInfoSection(
+                        arameterInfoSection(
                             eventClickProfilPicture: viewModel.modifyProfilPicture,
                             eventClickUsername: viewModel.modifyUsername,
                             verifyUsername: viewModel.verifyUsername
                         )
-                        LandParameterPrivateInfoSection(
+                        ParameterPrivateInfoSection(
                             eventClickPassword: viewModel.modifyPassword,
                             eventClickTypeAccount: viewModel.modifyTypeAccount,
                             verifyPassword: viewModel.verifyPassword,
                             verifyRepeatedPassword: viewModel.verifyRepeatedPassword
                         )
-                        LandRemoveButton(
+                        RemoveButton(
                             text: IosStringResources(id: SharedRes.strings().delete_account, args: []),
                             condition: {
                                 viewModel.isRemovePopUpOpen = true
@@ -74,7 +74,7 @@ struct SettingsScreen: View {
                         .frame(height: 106)
                         .foregroundColor(Color.background)
                         .shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 2)
-                    LandParameterTopBar(selection: $selection)
+                    ParameterTopBar(selection: $selection)
                 }.frame(height: 106)
                     .edgesIgnoringSafeArea(.top),
                 alignment: .top
@@ -101,7 +101,7 @@ struct SettingsScreen: View {
                 backgroundColor: .red
             ).navigationBarBackButtonHidden(true)
             if viewModel.isRemovePopUpOpen {
-                LandBoxRemoveUserPopUp(
+                BoxRemoveUserPopUp(
                     eventRemoveUserClick: handleEraseAccount,
                     eventCancelClick: {
                         viewModel.isRemovePopUpOpen = false

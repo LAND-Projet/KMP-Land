@@ -16,14 +16,14 @@ struct AuthMenuScreen: View {
     var body: some View {
         ZStack{
             Color.background
-                            .ignoresSafeArea()
-                            .overlay(
-                                Image(resource: \.reliefbleu)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .opacity(0.2)
-                                    .edgesIgnoringSafeArea(.all)
-                            )
+                .ignoresSafeArea()
+                .overlay(
+                    Image(resource: \.reliefbleu)
+                        .resizable()
+                        .scaledToFill()
+                        .opacity(0.2)
+                        .edgesIgnoringSafeArea(.all)
+                )
             VStack{
                 NavigationLink(destination: AuthSignInScreen(),tag: "SignIn", selection: $selection){
                     EmptyView()
@@ -36,11 +36,11 @@ struct AuthMenuScreen: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 111.23, height: 135.35)
                 Group{
-                    LandButton(text:IosStringResources(id:SharedRes.strings().connexion_text_button,args:[]), condition: selectionApplySignIn)
+                    Button(text:IosStringResources(id:SharedRes.strings().connexion_text_button,args:[]), condition: selectionApplySignIn)
                     
-                    LandButton(text:IosStringResources(id:SharedRes.strings().enroll_text_button,args:[]), condition: selectionApplySignUp)
+                    Button(text:IosStringResources(id:SharedRes.strings().enroll_text_button,args:[]), condition: selectionApplySignUp)
                     
-                    LandCopyrightText()
+                    CopyrightText()
                 }.frame(maxHeight: .infinity,alignment: .bottom)
             }
         }.navigationBarBackButtonHidden(true)

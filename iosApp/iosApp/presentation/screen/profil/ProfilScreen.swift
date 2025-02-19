@@ -86,7 +86,7 @@ struct ProfilScreen: View {
                         .foregroundColor(Color.backgroundTop)
                         .shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 2)
                     VStack {
-                        LandProfilTopBar(
+                        ProfilTopBar(
                             selection: $selection,
                             isYourProfil: $viewModel.isYourProfil,
                             isSameUserId: $viewModel.isSameUserId,
@@ -103,9 +103,9 @@ struct ProfilScreen: View {
                         )
 
                         if viewModel.isLoading {
-                            LandLoadingIcon()
+                            LoadingIcon()
                         } else {
-                            LandUserInfoItem(
+                            UserInfoItem(
                                 user: viewModel.landUser,
                                 eventClick: followUser,
                                 isYourProfil: viewModel.isYourProfil,
@@ -125,7 +125,7 @@ struct ProfilScreen: View {
                     }
                 }.frame(height: 280)
                     .edgesIgnoringSafeArea(.top)
-                LandSurvey(onFeedbackClick: {
+                Survey(onFeedbackClick: {
                     if #available(iOS 17.0, *) {
                         feedbackTip.invalidate(reason: .actionPerformed)
                     }
@@ -156,20 +156,20 @@ struct ProfilScreen: View {
             ).navigationBarBackButtonHidden(true)
                 
             if viewModel.isBlockPopUpOpen {
-                LandBoxBlockUserPopUp(
+                BoxBlockUserPopUp(
                     eventBlockClick: { viewModel.blockUser() },
                     eventUnBlockClick: { viewModel.unblockUser() },
                     isVisible: $viewModel.isBlockPopUpOpen
                 )
             }
             if viewModel.isReportPopUpOpen {
-                LandBoxReportUserPopUp(
+                BoxReportUserPopUp(
                     eventReportClick: {  },
                     isVisible: $viewModel.isReportPopUpOpen
                 )
             }
             if showDialogFollower {
-                LandUserEventPopUp(
+                UserEventPopUp(
                     isVisible: $showDialogFollower,
                     isLoading: $viewModel.isLoadingFollower,
                     list: self.$viewModel.listFollower,
@@ -178,7 +178,7 @@ struct ProfilScreen: View {
                 )
             }
             if showDialogFollowing {
-                LandUserEventPopUp(
+                dUserEventPopUp(
                     isVisible: $showDialogFollowing,
                     isLoading: $viewModel.isLoadingFollowing,
                     list: self.$viewModel.listFollowing,

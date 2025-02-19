@@ -157,7 +157,7 @@ struct LoginScreen: View {
                         .fontWeight(.bold)
                         .foregroundColor(.textColor)
                     Group {
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $emailValue,
                             contentText: IosStringResources(id: SharedRes.strings().email_text_label, args: []),
                             labelText: IosStringResources(id: SharedRes.strings().email_text_label, args: []),
@@ -165,7 +165,7 @@ struct LoginScreen: View {
                             isSecure: false,
                             eventValidate: { viewModel.onValidateEmail(emailValue: emailValue) }
                         )
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $passwordValue,
                             contentText: IosStringResources(id: SharedRes.strings().password_text_label, args: []),
                             labelText: IosStringResources(id: SharedRes.strings().password_text_label, args: []),
@@ -174,10 +174,10 @@ struct LoginScreen: View {
                             eventValidate: { viewModel.onValidatePassword(passwordValue: passwordValue) }
                         )
                         if isLoading {
-                            LandLoading()
+                            Loading()
                         } else {
-                            LandButton(text: IosStringResources(id: SharedRes.strings().connexion_text_button, args: []), condition: selectionApplyHome)
-                            LandGoogleButton(text: IosStringResources(id: SharedRes.strings().connexion_google_text_button, args: []), condition: selectionApplyHomeGoogle)
+                            Button(text: IosStringResources(id: SharedRes.strings().connexion_text_button, args: []), condition: selectionApplyHome)
+                            GoogleButton(text: IosStringResources(id: SharedRes.strings().connexion_google_text_button, args: []), condition: selectionApplyHomeGoogle)
                             SignInWithAppleButton(.signIn) { request in
                                 // authorization request for an Apple ID
                                 request.requestedScopes = [.fullName, .email]
@@ -207,7 +207,7 @@ struct LoginScreen: View {
                                 }
                         }
                         .padding(10)
-                        LandCopyrightText()
+                        CopyrightText()
                     }.frame(maxHeight: .infinity, alignment: .bottom)
                 }
             }

@@ -105,40 +105,6 @@ struct HomeScreen: View {
                     EmptyView()
                 }
             }
-            
-            if #available(iOS 17.0, *) {
-                LandMap(
-                    selection: $selection,
-                    postId: $postId,
-                    eventId: $eventId,
-                    ticketmasterId: $ticketmasterId,
-                    swipy: $landSwipy,
-                    cameraFocus: $landLocation,
-                    mapViewController: viewModel.mapViewController
-                )
-                .edgesIgnoringSafeArea(.all)
-                .onAppear(perform: startTimer)
-                .onDisappear(perform: stopTimer)
-                .popoverTip(mapTip)
-                
-            } else {
-                LandMap(
-                    selection: $selection,
-                    postId: $postId,
-                    eventId: $eventId,
-                    ticketmasterId: $ticketmasterId,
-                    swipy: $landSwipy,
-                    cameraFocus: $landLocation,
-                    mapViewController: viewModel.mapViewController
-                )
-                .edgesIgnoringSafeArea(.all)
-                .onAppear(perform: startTimer)
-                .onDisappear(perform: stopTimer)
-            }
-
-            
-            
-            HomeTopBar(selection: $selection,isNotified: $viewModel.isNotified)
 
             if showAddPopup {
                 Color.clear

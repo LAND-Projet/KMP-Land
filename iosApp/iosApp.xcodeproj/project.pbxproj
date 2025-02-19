@@ -12,6 +12,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		2DC482782FADFC624E8A17E2 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF13F9A3CBC5286225BDC0 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		95220D782D668FEF0091DE3A /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95220D772D668FDA0091DE3A /* TermsOfUse.swift */; };
+		95220D7B2D6690220091DE3A /* LandmarkTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95220D7A2D66901C0091DE3A /* LandmarkTip.swift */; };
 		958890AB2D5BD14D0059AE54 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958890AA2D5BD1490059AE54 /* Color.swift */; };
 		958890AD2D5BD16F0059AE54 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958890AC2D5BD16B0059AE54 /* CustomFont.swift */; };
 		958890B62D5BFA7E0059AE54 /* poppins_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 958890B22D5BFA7E0059AE54 /* poppins_medium.ttf */; };
@@ -65,6 +67,8 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95220D772D668FDA0091DE3A /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
+		95220D7A2D66901C0091DE3A /* LandmarkTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkTip.swift; sourceTree = "<group>"; };
 		958890AA2D5BD1490059AE54 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		958890AC2D5BD16B0059AE54 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		958890AE2D5BFA7E0059AE54 /* poppins_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = poppins_black.ttf; sourceTree = "<group>"; };
@@ -184,6 +188,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		95220D792D6690130091DE3A /* tip */ = {
+			isa = PBXGroup;
+			children = (
+				95220D7A2D66901C0091DE3A /* LandmarkTip.swift */,
+			);
+			path = tip;
+			sourceTree = "<group>";
+		};
 		958890C02D5BFC8A0059AE54 /* toggle */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,7 @@
 		958890D92D5C03D10059AE54 /* label */ = {
 			isa = PBXGroup;
 			children = (
+				95220D772D668FDA0091DE3A /* TermsOfUse.swift */,
 				958890DC2D5C03F60059AE54 /* CopyrightText.swift */,
 			);
 			path = label;
@@ -353,6 +366,7 @@
 		958B2A042D517B48006F9E03 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				95220D792D6690130091DE3A /* tip */,
 				958890EF2D5C07940059AE54 /* survey */,
 				958890EE2D5C078B0059AE54 /* ads */,
 				958890ED2D5C07830059AE54 /* navigation */,
@@ -636,6 +650,7 @@
 				958890AD2D5BD16F0059AE54 /* CustomFont.swift in Sources */,
 				958890C92D5BFDF50059AE54 /* IosStringResources.swift in Sources */,
 				958890F12D5C08FE0059AE54 /* Survey.swift in Sources */,
+				95220D7B2D6690220091DE3A /* LandmarkTip.swift in Sources */,
 				958890EC2D5C06CE0059AE54 /* PopUpNavigation.swift in Sources */,
 				958890E12D5C04BC0059AE54 /* IconTextButton.swift in Sources */,
 				958890E72D5C05940059AE54 /* OutlinedTextField.swift in Sources */,
@@ -648,6 +663,7 @@
 				958891022D5C0B000059AE54 /* HomeScreen.swift in Sources */,
 				958890D62D5C01F60059AE54 /* AppStorageSessionCache.swift in Sources */,
 				9588910B2D5C0B690059AE54 /* LoginScreen.swift in Sources */,
+				95220D782D668FEF0091DE3A /* TermsOfUse.swift in Sources */,
 				9588910D2D5C0B730059AE54 /* RegisterScreen.swift in Sources */,
 				958890CD2D5BFFB50059AE54 /* AnalyticsManager.swift in Sources */,
 				958890CB2D5BFF220059AE54 /* RatingManager.swift in Sources */,

@@ -194,7 +194,7 @@ struct RegisterScreen: View {
                         .foregroundColor(Color.textColor)
 
                     Group {
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $emailValue,
                             contentText: IosStringResources(id: SharedRes.strings().email_text_label, args: []),
                             labelText: IosStringResources(id: SharedRes.strings().email_text_label, args: []),
@@ -202,7 +202,7 @@ struct RegisterScreen: View {
                             isSecure: false,
                             eventValidate: { viewModel.onValidateEmail(emailValue: emailValue) }
                         )
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $usernameValue,
                             contentText: IosStringResources(id: SharedRes.strings().username_text_label, args: []),
                             labelText: IosStringResources(id: SharedRes.strings().username_text_label, args: []),
@@ -210,7 +210,7 @@ struct RegisterScreen: View {
                             isSecure: false,
                             eventValidate: { viewModel.onValidateUsername(usernameValue: usernameValue) }
                         )
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $passwordValue,
                             contentText: IosStringResources(id: SharedRes.strings().password_text_label, args: []),
                             labelText: IosStringResources(id: SharedRes.strings().password_text_label, args: []),
@@ -218,7 +218,7 @@ struct RegisterScreen: View {
                             isSecure: true,
                             eventValidate: { viewModel.onValidatePassword(passwordValue: passwordValue) }
                         )
-                        LandOutlinedTextField(
+                        OutlinedTextField(
                             textValue: $repeatedPasswordValue,
                             contentText: IosStringResources(id: SharedRes.strings().repeated_password_text_label, args: []),
                             labelText: "",
@@ -236,10 +236,10 @@ struct RegisterScreen: View {
 
                         if termsAccepted {
                             if isLoading {
-                                LandLoading()
+                                Loading()
                             } else {
-                                LandButton(text: IosStringResources(id: SharedRes.strings().enroll_text_button, args: []), condition: selectionApplyHome)
-                                LandGoogleButton(text: IosStringResources(id: SharedRes.strings().enroll_google_text_button, args: []), condition: selectionApplyHomeGoogle)
+                                Button(text: IosStringResources(id: SharedRes.strings().enroll_text_button, args: []), condition: selectionApplyHome)
+                                GoogleButton(text: IosStringResources(id: SharedRes.strings().enroll_google_text_button, args: []), condition: selectionApplyHomeGoogle)
                                 SignInWithAppleButton(.signUp) { request in
                                     request.requestedScopes = [.fullName, .email]
                                 } onCompletion: { result in
@@ -258,8 +258,8 @@ struct RegisterScreen: View {
                                 .padding(.horizontal, 16)
                             }
                         } else {
-                            LandDisableButton(text: IosStringResources(id: SharedRes.strings().enroll_text_button, args: []))
-                            LandDisableGoogleButton(text: IosStringResources(id: SharedRes.strings().enroll_google_text_button, args: []))
+                            DisableButton(text: IosStringResources(id: SharedRes.strings().enroll_text_button, args: []))
+                            DisableGoogleButton(text: IosStringResources(id: SharedRes.strings().enroll_google_text_button, args: []))
                             SignInWithAppleButton(.signUp) { request in
                                 
                             } onCompletion: { result in
@@ -270,7 +270,7 @@ struct RegisterScreen: View {
                             .padding(.horizontal, 16)
                             .disabled(true)
                         }
-                        LandTermsOfUse(termsAccepted: $termsAccepted)
+                        TermsOfUse(termsAccepted: $termsAccepted)
 
                         Spacer()
                         HStack(spacing: 5) {
@@ -284,7 +284,7 @@ struct RegisterScreen: View {
                                     selection = "SignIn"
                                 }
                         }.padding(10)
-                        LandCopyrightText()
+                        CopyrightText()
                     }.frame(maxHeight: .infinity, alignment: .bottom)
                 }
             }
