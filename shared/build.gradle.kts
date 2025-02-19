@@ -49,10 +49,11 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(moko.mokoLibResources)
-            //api(moko.mokoCompose)
+            api(moko.mokoCompose)
             //implementation("dev.icerock.moko:parcelize:0.8.0")
 
-            //implementation(sqldelight.sqlCoroutines)
+            implementation(sqldelight.sqlCommon)
+            implementation(sqldelight.sqlCoroutines)
 
             implementation(ktor.ktorCore)
             implementation(ktor.ktorCio)
@@ -76,7 +77,7 @@ kotlin {
         val androidMain by getting {
             kotlin.srcDir("build/generated/moko/androidMain/src")
             dependencies {
-                //implementation(sqldelight.sqlAndroid)
+                implementation(sqldelight.sqlAndroid)
                 implementation(ktor.ktorAndroid)
                 //api(moko.mokoCompose)
             }
@@ -89,7 +90,7 @@ kotlin {
             //implementation(sqldelight.sqlJKvm)
         }
         iosMain.dependencies {
-            //implementation(sqldelight.sqlIos)
+            implementation(sqldelight.sqlIos)
             implementation(ktor.ktorIos)
             implementation(other.touchlabStately)
         }
@@ -98,7 +99,7 @@ kotlin {
 
 /*sqldelight {
     databases {
-        create("IdeaDB") {
+        create("IdeaDatabase") {
             packageName.set("com.kmp.idea.database")
             //srcDirs.setFrom("src/commonMain/sqldelight")
         }

@@ -19,5 +19,5 @@ playAdsService = { module = "com.google.android.gms:play-services-ads", version.
 auth = { module = "com.google.android.gms:play-services-auth", version.ref = "auth" }
 
 [plugins]
-googleServices = { id = "com.google.gms.google-services" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "google-service" }
 mapsSecrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version = "2.0.1" }

@@ -32,4 +32,5 @@ fun initKoin() {
 
     koinApp.get<UserUseCases>()
     koinApp.get<PostUseCases>()
+    koinApp.get<UserUseCasesDAO>()
 }

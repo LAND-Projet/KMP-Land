@@ -1,0 +1,27 @@
+
+CREATE TABLE UserEntity(
+    UserGuid     TEXT NOT NULL PRIMARY KEY,
+    Email     TEXT NOT NULL,
+    Picture 	 TEXT NOT NULL,
+);
+
+-- For User
+
+getUserById:
+SELECT *
+FROM UserEntity
+WHERE UserGuid = ?;
+
+insertUser:
+INSERT OR REPLACE
+INTO UserEntity(
+    UserGuid,
+    Email,
+    Picture
+) VALUES ( ?,?,? );
+
+deleteUserById:
+DELETE FROM UserEntity
+WHERE UserGuid = ?;
+
+-- End Section User
